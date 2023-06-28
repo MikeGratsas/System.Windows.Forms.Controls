@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFrameworks>netcoreapp3.1;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <CLSCompliant>true</CLSCompliant>
@@ -17,7 +17,33 @@
     <RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
     <EnableNETAnalyzers>False</EnableNETAnalyzers>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.5000</Version>
+    <Authors>Mike Gratsas</Authors>
+    <Description>This package includes types and controls that were removed from System.Windows.Forms in .NET Core 3.x / .NET 5.</Description>
+    <Copyright>The code in the package is Copyright © Microsoft Corporation</Copyright>
+    <PackageLicenseFile>LICENSE.TXT</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/MikeGratsas/System.Windows.Forms.Controls</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MikeGratsas/System.Windows.Forms.Controls</RepositoryUrl>
+    <PackageTags>System.Windows.Forms;WinForms;Legacy;Compatibility;</PackageTags>
+    <PackageId>System.Windows.Forms.Controls</PackageId>
+    <Product>System.Windows.Forms.Controls</Product>
+    <Title>System.Windows.Forms.Controls</Title>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>This project is based on Microsoft code.</PackageReleaseNotes>
   </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
+    <Compile Remove="src\System\Windows\Forms\StatusBar.cs" />
+    <Compile Remove="src\System\Windows\Forms\StatusBarDrawItemEventArgs.cs" />
+    <Compile Remove="src\System\Windows\Forms\StatusBarDrawItemEventHandler.cs" />
+    <Compile Remove="src\System\Windows\Forms\StatusBarPanel.cs" />
+    <Compile Remove="src\System\Windows\Forms\StatusBarPanelAutoSize.cs" />
+    <Compile Remove="src\System\Windows\Forms\StatusBarPanelBorderStyle.cs" />
+    <Compile Remove="src\System\Windows\Forms\StatusBarPanelClickEventArgs.cs" />
+    <Compile Remove="src\System\Windows\Forms\StatusBarPanelClickEventHandler.cs" />
+    <Compile Remove="src\System\Windows\Forms\StatusBarPanelStyle.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Update="src\Resources\SR.Designer.cs">
