@@ -25,7 +25,8 @@ jobs:
         source-url: 'https://nuget.pkg.github.com/$GITHUB_REPOSITORY_OWNER/index.json'
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-    - run: echo '${{ steps.stepid.outputs.dotnet-version }}'
+    - name: Display dotnet version
+      run: echo '${{ steps.stepid.outputs.dotnet-version }}'
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
@@ -35,7 +36,7 @@ jobs:
     - name: Pack nugets
       run: dotnet pack -c Release --no-build
     - name: Publish the package to GPR
-      run: dotnet nuget push ${{ github.workspace }}/bin/Release/*.nupkg --source "github"
+      run: dotnet nuget push ${{ github.workspace }}/bin/Release/*.nupkg
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3
       with:
