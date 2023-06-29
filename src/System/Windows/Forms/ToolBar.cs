@@ -1952,6 +1952,10 @@ namespace System.Windows.Forms
                 }
             }
 
+            /// <summary>Gets a value indicating whether the collection is read-only.</summary>
+            /// <returns>
+            ///   <see langword="true" /> if the collection is read-only; otherwise, <see langword="false" />. The default is <see langword="false" />.
+            /// </returns>
             public bool IsReadOnly
             {
                 get
@@ -1977,6 +1981,9 @@ namespace System.Windows.Forms
                 return index;
             }
 
+            /// <summary>Adds a new toolbar button to the end of the toolbar button collection with the specified <see cref="P:System.Windows.Forms.ToolBarButton.Text" /> property value.</summary>
+            /// <param name="text">The text to display on the new <see cref="T:System.Windows.Forms.ToolBarButton" />.</param>
+            /// <returns>The zero-based index value of the <see cref="T:System.Windows.Forms.ToolBarButton" /> added to the collection.</returns>
             public int Add(string text)
             {
                 ToolBarButton button = new ToolBarButton(text);
@@ -1995,6 +2002,8 @@ namespace System.Windows.Forms
                 }
             }
 
+            /// <summary>Adds a collection of toolbar buttons to this toolbar button collection.</summary>
+            /// <param name="buttons">The collection of <see cref="T:System.Windows.Forms.ToolBarButton" /> controls to add to this <see cref="T:System.Windows.Forms.ToolBar.ToolBarButtonCollection" /> contained in an array.</param>
             public void AddRange(ToolBarButton[] buttons)
             {
                 if (buttons == null)
@@ -2045,6 +2054,10 @@ namespace System.Windows.Forms
                 }
             }
 
+            /// <summary>Determines if the specified toolbar button is a member of the collection.</summary>
+            /// <param name="button">The <see cref="T:System.Windows.Forms.ToolBarButton" /> to locate in the collection.</param>
+            /// <returns>
+            ///   <see langword="true" /> if the <see cref="T:System.Windows.Forms.ToolBarButton" /> is a member of the collection; otherwise, <see langword="false" />.</returns>
             public bool Contains(ToolBarButton button)
             {
                 return IndexOf(button) != -1;
@@ -2078,6 +2091,9 @@ namespace System.Windows.Forms
                 }
             }
 
+            /// <summary>Retrieves the index of the specified toolbar button in the collection.</summary>
+            /// <param name="button">The <see cref="T:System.Windows.Forms.ToolBarButton" /> to locate in the collection.</param>
+            /// <returns>The zero-based index of the item found in the collection; otherwise, -1.</returns>
             public int IndexOf(ToolBarButton button)
             {
                 for (int index = 0; index < Count; ++index)
@@ -2137,6 +2153,9 @@ namespace System.Windows.Forms
                 return -1;
             }
 
+            /// <summary>Inserts an existing toolbar button in the toolbar button collection at the specified location.</summary>
+            /// <param name="index">The indexed location within the collection to insert the toolbar button.</param>
+            /// <param name="button">The <see cref="T:System.Windows.Forms.ToolBarButton" /> to insert.</param>
             public void Insert(int index, ToolBarButton button)
             {
                 owner.InsertButton(index, button);
@@ -2196,6 +2215,8 @@ namespace System.Windows.Forms
                 }
             }
 
+            /// <summary>Removes a given button from the toolbar button collection.</summary>
+            /// <param name="button">The <see cref="T:System.Windows.Forms.ToolBarButton" /> to remove from the collection.</param>
             public void Remove(ToolBarButton button)
             {
                 int index = IndexOf(button);

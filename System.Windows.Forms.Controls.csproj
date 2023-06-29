@@ -22,7 +22,7 @@
     <Authors>Mike Gratsas</Authors>
     <Description>This package includes types and controls that were removed from System.Windows.Forms in .NET Core 3.x / .NET 5.</Description>
     <Copyright>The code in the package is Copyright © Microsoft Corporation</Copyright>
-    <PackageLicenseFile>LICENSE.TXT</PackageLicenseFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/MikeGratsas/System.Windows.Forms.Controls</PackageProjectUrl>
     <RepositoryUrl>https://github.com/MikeGratsas/System.Windows.Forms.Controls</RepositoryUrl>
     <PackageTags>System.Windows.Forms;WinForms;Legacy;Compatibility;</PackageTags>
