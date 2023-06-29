@@ -12,7 +12,7 @@ internal partial class Interop
     /// </summary>
     internal static class PARAM
     {
-        public static IntPtr FromLowHigh(int low, int high) => ToInt(low, high);
+        public static IntPtr FromLowHigh(int low, int high) => (IntPtr)ToInt(low, high);
 
         public static IntPtr FromLowHighUnsigned(int low, int high)
             // Convert the int to an uint before converting it to a pointer type,
@@ -71,6 +71,6 @@ internal partial class Interop
         ///  Unpacks a <see cref="Point"/> from a PARAM.
         /// </summary>
         public static Point ToPoint(IntPtr param)
-            => new(SignedLOWORD(param), SignedHIWORD(param));
+            => new Point(SignedLOWORD(param), SignedHIWORD(param));
     }
 }

@@ -14,10 +14,10 @@ internal static partial class Interop
 
             public HGDIOBJ(IntPtr handle) => Handle = handle;
 
-            public bool IsNull => Handle == 0;
+            public bool IsNull => Handle == IntPtr.Zero;
 
             public static explicit operator IntPtr(HGDIOBJ hgdiobj) => hgdiobj.Handle;
-            public static explicit operator HGDIOBJ(IntPtr hgdiobj) => new(hgdiobj);
+            public static explicit operator HGDIOBJ(IntPtr hgdiobj) => new HGDIOBJ(hgdiobj);
 
             public static bool operator ==(HGDIOBJ value1, HGDIOBJ value2) => value1.Handle == value2.Handle;
             public static bool operator !=(HGDIOBJ value1, HGDIOBJ value2) => value1.Handle != value2.Handle;

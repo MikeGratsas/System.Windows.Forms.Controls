@@ -5,7 +5,7 @@ using System.Reflection;
 namespace System.Windows.Forms
 {
     public static class CurrencyManagerHelper
-	{
+    {
         internal static string GetListName(this CurrencyManager currencyManager)
         {
             return typeof(CurrencyManager).GetMethod("GetListName", BindingFlags.Instance | BindingFlags.NonPublic, Type.EmptyTypes).Invoke(currencyManager, null) as string;

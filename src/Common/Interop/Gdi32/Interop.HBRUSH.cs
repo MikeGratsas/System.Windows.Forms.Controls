@@ -14,12 +14,12 @@ internal static partial class Interop
 
             public HBRUSH(IntPtr handle) => Handle = handle;
 
-            public bool IsNull => Handle == 0;
+            public bool IsNull => Handle == IntPtr.Zero;
 
             public static implicit operator IntPtr(HBRUSH hbrush) => hbrush.Handle;
-            public static explicit operator HBRUSH(IntPtr hbrush) => new(hbrush);
-            public static implicit operator HGDIOBJ(HBRUSH hbrush) => new(hbrush.Handle);
-            public static explicit operator HBRUSH(HGDIOBJ hbrush) => new(hbrush.Handle);
+            public static explicit operator HBRUSH(IntPtr hbrush) => new HBRUSH(hbrush);
+            public static implicit operator HGDIOBJ(HBRUSH hbrush) => new HGDIOBJ(hbrush.Handle);
+            public static explicit operator HBRUSH(HGDIOBJ hbrush) => new HBRUSH(hbrush.Handle);
         }
     }
 }

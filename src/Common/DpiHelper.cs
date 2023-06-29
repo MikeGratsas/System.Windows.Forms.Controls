@@ -192,7 +192,7 @@ namespace System.Windows.Forms
             try
             {
                 RegistryKey? key = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Accessibility");
-                if (key is not null && key.GetValue("TextScaleFactor") is int _textScaleValue)
+                if (key != null && key.GetValue("TextScaleFactor") is int _textScaleValue)
                 {
                     textScaleValue = (short)_textScaleValue;
                 }
@@ -325,7 +325,7 @@ namespace System.Windows.Forms
         /// <returns>New scaled bitmap</returns>
         internal static Bitmap GetScaledBitmapFromIcon(Type type, string name, Size defaultSize)
         {
-            using Icon icon = new(type, name);
+            using Icon icon = new Icon(type, name);
             Size scaledSize = LogicalToDeviceUnits(defaultSize);
             Size deltaSize = icon.Size - scaledSize;
             if (Math.Abs(deltaSize.Height) <= 2 && Math.Abs(deltaSize.Width) <= 2)
@@ -333,7 +333,7 @@ namespace System.Windows.Forms
                 return icon.ToBitmap();
             }
 
-            using Icon scaledIcon = new(icon, scaledSize);
+            using Icon scaledIcon = new Icon(icon, scaledSize);
             return scaledIcon.ToBitmap();
         }
 
@@ -350,7 +350,7 @@ namespace System.Windows.Forms
             }
 
             Bitmap deviceBitmap = CreateScaledBitmap(logicalBitmap, deviceDpi);
-            if (deviceBitmap is not null)
+            if (deviceBitmap != null)
             {
                 logicalBitmap.Dispose();
                 logicalBitmap = deviceBitmap;
