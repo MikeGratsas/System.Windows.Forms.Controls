@@ -8,14 +8,14 @@ internal static partial class Interop
     {
         public readonly struct HBRUSH
         {
-            public nint Handle { get; }
+            public IntPtr Handle { get; }
 
-            public HBRUSH(nint handle) => Handle = handle;
+            public HBRUSH(IntPtr handle) => Handle = handle;
 
             public bool IsNull => Handle == 0;
 
-            public static implicit operator nint(HBRUSH hbrush) => hbrush.Handle;
-            public static explicit operator HBRUSH(nint hbrush) => new(hbrush);
+            public static implicit operator IntPtr(HBRUSH hbrush) => hbrush.Handle;
+            public static explicit operator HBRUSH(IntPtr hbrush) => new(hbrush);
             public static implicit operator HGDIOBJ(HBRUSH hbrush) => new(hbrush.Handle);
             public static explicit operator HBRUSH(HGDIOBJ hbrush) => new(hbrush.Handle);
         }

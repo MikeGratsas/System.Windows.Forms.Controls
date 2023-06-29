@@ -16,13 +16,16 @@ jobs:
     strategy:
       matrix:
         dotnet-version: [ '3.1.x', '6.0.x', '7.0.x' ]
-
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET ${{ matrix.dotnet-version }}
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
+        source-url: 'https://nuget.pkg.github.com/$GITHUB_REPOSITORY_OWNER/index.json'
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - run: echo '${{ steps.stepid.outputs.dotnet-version }}'
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
@@ -31,6 +34,8 @@ jobs:
       run: dotnet test -c Release --no-build --verbosity normal
     - name: Pack nugets
       run: dotnet pack -c Release --no-build
+    - name: Publish the package to GPR
+      run: dotnet nuget push ${{ github.workspace }}/bin/Release/*.nupkg --source "github"
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3
       with:

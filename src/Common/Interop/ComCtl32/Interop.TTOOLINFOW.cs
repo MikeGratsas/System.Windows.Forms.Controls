@@ -56,7 +56,7 @@ internal static partial class Interop
                 _handle = handle;
             }
 
-            public unsafe nint SendMessage(IWin32Window sender, uint message, BOOL state = BOOL.FALSE)
+            public unsafe IntPtr SendMessage(IWin32Window sender, uint message, BOOL state = BOOL.FALSE)
             {
                 Info.cbSize = (uint)sizeof(TTOOLINFOW);
                 fixed (char* c = Text)
@@ -67,7 +67,7 @@ internal static partial class Interop
                         Info.lpszText = c;
                     }
 
-                    nint result = User32.SendMessageW(sender, message, (IntPtr)state, (IntPtr)i);
+                    IntPtr result = User32.SendMessageW(sender, message, (IntPtr)state, (IntPtr)i);
                     GC.KeepAlive(_handle);
                     return result;
                 }
