@@ -32,7 +32,8 @@ internal partial class Interop
 
         public COLORREF(uint value)
         {
-            Unsafe.SkipInit(out this);
+            //Unsafe.SkipInit(out this);
+            R = G = B = 0;
             Value = value & 0x00FFFFFF;
         }
 

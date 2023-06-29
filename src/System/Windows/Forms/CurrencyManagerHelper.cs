@@ -8,7 +8,7 @@ namespace System.Windows.Forms
     {
         internal static string GetListName(this CurrencyManager currencyManager)
         {
-            return typeof(CurrencyManager).GetMethod("GetListName", BindingFlags.Instance | BindingFlags.NonPublic, Type.EmptyTypes).Invoke(currencyManager, null) as string;
+            return typeof(CurrencyManager).GetMethod("GetListName", BindingFlags.Instance | BindingFlags.NonPublic, null, Type.EmptyTypes, null).Invoke(currencyManager, null) as string;
         }
 
         /// <summary>
