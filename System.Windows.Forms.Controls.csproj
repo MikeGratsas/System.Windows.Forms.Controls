@@ -25,7 +25,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/MikeGratsas/System.Windows.Forms.Controls</PackageProjectUrl>
     <RepositoryUrl>https://github.com/MikeGratsas/System.Windows.Forms.Controls</RepositoryUrl>
-    <PackageTags>System.Windows.Forms;WinForms;Legacy;Compatibility;</PackageTags>
+    <PackageTags>System.Windows.Forms;WinForms;Controls;Legacy;Compatibility;</PackageTags>
     <PackageId>System.Windows.Forms.Controls</PackageId>
     <Product>System.Windows.Forms.Controls</Product>
     <Title>System.Windows.Forms.Controls</Title>
