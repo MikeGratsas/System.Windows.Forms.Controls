@@ -65,6 +65,8 @@ namespace System.Windows.Forms
         {
         }
 
+        /// <summary>Initializes a new instance of the <see cref="ToolBarButton" /> class and displays the assigned text on the button.</summary>
+        /// <param name="text">The text to display on the new <see cref="ToolBarButton" />.</param>
         public ToolBarButton(string text) : base()
         {
             Text = text;
@@ -393,6 +395,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets the object that contains data about the toolbar button.</summary>
+        /// <returns>An <see cref="T:System.Object" /> that contains data about the toolbar button. The default is <see langword="null" />.</returns>
         [
         SRCategory(nameof(SR.CatData)),
         Localizable(false),
@@ -571,6 +575,9 @@ namespace System.Windows.Forms
 
         }
 
+        /// <summary>Releases the unmanaged resources used by the <see cref="T:System.Windows.Forms.ToolBarButton" /> and optionally releases the managed resources.</summary>
+        /// <param name="disposing">
+        ///   <see langword="true" /> to release both managed and unmanaged resources; <see langword="false" /> to release only unmanaged resources.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -824,6 +831,8 @@ namespace System.Windows.Forms
             value = newString.ToString();
         }
 
+        /// <summary>Returns a string that represents the <see cref="ToolBarButton" /> control.</summary>
+        /// <returns>A string that represents the current <see cref="ToolBarButton" />.</returns>
         public override string ToString()
         {
             return "ToolBarButton: " + Text + ", Style: " + Style.ToString("G");

@@ -163,6 +163,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets a value indicating the collection of <see cref="T:System.Windows.Forms.MenuItem" /> objects associated with the menu.</summary>
+        /// <returns>A <see cref="T:System.Windows.Forms.Menu.MenuItemCollection" /> that represents the list of <see cref="T:System.Windows.Forms.MenuItem" /> objects stored in the menu.</returns>
         [
         Browsable(false),
         DesignerSerializationVisibility(DesignerSerializationVisibility.Content),
@@ -191,6 +193,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets user-defined data associated with the control.</summary>
+        /// <returns>An object representing the data.</returns>
         [
         SRCategory(nameof(SR.CatData)),
         Localizable(false),
@@ -258,6 +262,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Creates a new handle to the <see cref="T:System.Windows.Forms.Menu" />.</summary>
+        /// <returns>A handle to the menu if the method succeeds; otherwise, <see langword="null" />.</returns>
         protected virtual IntPtr CreateMenuHandle()
         {
             return UnsafeNativeMethods.CreatePopupMenu();
@@ -329,6 +335,10 @@ namespace System.Windows.Forms
             base.Dispose(disposing);
         }
 
+        /// <summary>Gets the <see cref="T:System.Windows.Forms.MenuItem" /> that contains the value specified.</summary>
+        /// <param name="type">The type of item to use to find the <see cref="T:System.Windows.Forms.MenuItem" />.</param>
+        /// <param name="value">The item to use to find the <see cref="T:System.Windows.Forms.MenuItem" />.</param>
+        /// <returns>The <see cref="T:System.Windows.Forms.MenuItem" /> that matches value; otherwise, <see langword="null" />.</returns>
         public MenuItem FindMenuItem(int type, IntPtr value)
         {
             for (int i = 0; i < ItemCount; i++)
@@ -360,6 +370,9 @@ namespace System.Windows.Forms
             return null;
         }
 
+        /// <summary>Returns the position at which a menu item should be inserted into the menu.</summary>
+        /// <param name="mergeOrder">The merge order position for the menu item to be merged.</param>
+        /// <returns>The position at which a menu item should be inserted into the menu.</returns>
         protected int FindMergePosition(int mergeOrder)
         {
             int iMin, iLim, iT;
@@ -619,6 +632,12 @@ namespace System.Windows.Forms
             return false;
         }
 
+        /// <summary>Processes a command key.</summary>
+        /// <param name="msg">A <see cref="T:System.Windows.Forms.Message" />, passed by reference that represents the window message to process.</param>
+        /// <param name="keyData">One of the <see cref="T:System.Windows.Forms.Keys" /> values that represents the key to process.</param>
+        /// <returns>
+        ///   <see langword="true" /> if the character was processed by the control; otherwise, <see langword="false" />.
+        /// </returns>
         protected internal virtual bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             MenuItem item = FindMenuItem(FindShortcut, (IntPtr)(int)keyData);
@@ -710,6 +729,7 @@ namespace System.Windows.Forms
                    char.ToUpper(mi.Text[0], CultureInfo.CurrentCulture) == key;
         }
 
+        /// <summary>Represents a collection of <see cref="T:System.Windows.Forms.MenuItem" /> objects.</summary>
         [ListBindable(false)]
         public class MenuItemCollection : IList
         {
@@ -720,11 +740,21 @@ namespace System.Windows.Forms
             ///  issues by holding on to extra references.
             private int lastAccessedIndex = -1;
 
+            /// <summary>Initializes a new instance of the <see cref="T:System.Windows.Forms.Menu.MenuItemCollection" /> class.</summary>
+            /// <param name="owner">The <see cref="T:System.Windows.Forms.Menu" /> that owns this collection.</param>
             public MenuItemCollection(Menu owner)
             {
                 this.owner = owner;
             }
 
+            /// <summary>Retrieves the <see cref="T:System.Windows.Forms.MenuItem" /> at the specified indexed location in the collection.</summary>
+            /// <param name="index">The indexed location of the <see cref="T:System.Windows.Forms.MenuItem" /> in the collection.</param>
+            /// <returns>The <see cref="T:System.Windows.Forms.MenuItem" /> at the specified location.</returns>
+            /// <exception cref="T:System.ArgumentException">The <paramref name="value" /> parameter is <see langword="null" />.  
+            ///  or  
+            ///  The <paramref name="index" /> parameter is less than zero.  
+            ///  or  
+            ///  The <paramref name="index" /> parameter is greater than the number of menu items in the collection, and the collection of menu items is not <see langword="null" />.</exception>
             public virtual MenuItem this[int index]
             {
                 get
@@ -778,6 +808,8 @@ namespace System.Windows.Forms
                 }
             }
 
+            /// <summary>Gets a value indicating the total number of <see cref="T:System.Windows.Forms.MenuItem" /> objects in the collection.</summary>
+            /// <returns>The number of <see cref="T:System.Windows.Forms.MenuItem" /> objects in the collection.</returns>
             public int Count
             {
                 get
@@ -810,6 +842,9 @@ namespace System.Windows.Forms
                 }
             }
 
+            /// <summary>Gets a value indicating whether the collection is read-only.</summary>
+            /// <returns>
+            ///   <see langword="true" /> if the collection is read-only; otherwise, <see langword="false" />. The default is <see langword="false" />.</returns>
             public bool IsReadOnly
             {
                 get
@@ -938,6 +973,8 @@ namespace System.Windows.Forms
                 return index;
             }
 
+            /// <summary>Adds an array of previously created <see cref="T:System.Windows.Forms.MenuItem" /> objects to the collection.</summary>
+            /// <param name="items">An array of <see cref="T:System.Windows.Forms.MenuItem" /> objects representing the menu items to add to the collection.</param>
             public virtual void AddRange(MenuItem[] items)
             {
                 if (items == null)
@@ -962,6 +999,9 @@ namespace System.Windows.Forms
                 }
             }
 
+            /// <summary>Determines if the specified <see cref="T:System.Windows.Forms.MenuItem" /> is a member of the collection.</summary>
+            /// <param name="value">The <see cref="T:System.Windows.Forms.MenuItem" /> to locate in the collection.</param>
+            /// <returns>
             public bool Contains(MenuItem value)
             {
                 return IndexOf(value) != -1;
@@ -1055,6 +1095,9 @@ namespace System.Windows.Forms
                 return foundMenuItems;
             }
 
+            /// <summary>Retrieves the index of a specific item in the collection.</summary>
+            /// <param name="value">The <see cref="T:System.Windows.Forms.MenuItem" /> to locate in the collection.</param>
+            /// <returns>The zero-based index of the item found in the collection; otherwise, -1.</returns>
             public int IndexOf(MenuItem value)
             {
                 for (int index = 0; index < Count; ++index)
@@ -1159,6 +1202,9 @@ namespace System.Windows.Forms
                 }
             }
 
+            /// <summary>Copies the entire collection into an existing array at a specified location within the array.</summary>
+            /// <param name="dest">The destination array.</param>
+            /// <param name="index">The index in the destination array at which storing begins.</param>
             public void CopyTo(Array dest, int index)
             {
                 if (owner.ItemCount > 0)
@@ -1167,6 +1213,8 @@ namespace System.Windows.Forms
                 }
             }
 
+            /// <summary>Returns an enumerator that can be used to iterate through the menu item collection.</summary>
+            /// <returns>An <see cref="T:System.Collections.IEnumerator" /> that represents the menu item collection.</returns>
             public IEnumerator GetEnumerator()
             {
                 return new ArraySubsetEnumerator(owner.items, owner.ItemCount);

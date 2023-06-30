@@ -4,6 +4,7 @@
 
 namespace System.Windows.Forms
 {
+    /// <summary>Specifies the button style within a toolbar.</summary>
     public enum ToolBarButtonStyle
     {
         /// <summary>

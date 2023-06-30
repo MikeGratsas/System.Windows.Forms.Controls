@@ -1308,6 +1308,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.MenuItem.Popup" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected internal virtual void OnInitMenuPopup(EventArgs e) => OnPopup(e);
 
         /// <summary>
@@ -1346,6 +1348,8 @@ namespace System.Windows.Forms
             return true;
         }
 
+        /// <summary>Returns a string that represents the <see cref="T:System.Windows.Forms.MenuItem" />.</summary>
+        /// <returns>A string that represents the current <see cref="T:System.Windows.Forms.MenuItem" />. The string includes the type and the <see cref="P:System.Windows.Forms.MenuItem.Text" /> property of the control.</returns>
         public override string ToString()
         {
             string s = base.ToString();

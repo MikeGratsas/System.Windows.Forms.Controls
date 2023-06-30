@@ -47,6 +47,7 @@ namespace System.Windows.Forms
         {
         }
 
+        /// <summary>Occurs when the main menu collapses.</summary>
         [SRDescription(nameof(SR.MainMenuCollapseDescr))]
         public event EventHandler Collapse
         {
@@ -120,6 +121,8 @@ namespace System.Windows.Forms
             return newMenu;
         }
 
+        /// <summary>Creates a new handle to the Menu.</summary>
+        /// <returns>A handle to the menu if the method succeeds; otherwise, <see langword="null" />.</returns>
         protected override IntPtr CreateMenuHandle()
         {
             return UnsafeNativeMethods.CreateMenu();

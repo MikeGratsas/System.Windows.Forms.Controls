@@ -201,6 +201,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the value of the <see cref="P:System.Windows.Forms.ToolBar.AutoSize" /> property has changed.</summary>
         [SRCategory(nameof(SR.CatPropertyChanged)), SRDescription(nameof(SR.ControlOnAutoSizeChangedDescr))]
         [Browsable(true), EditorBrowsable(EditorBrowsableState.Always)]
         new public event EventHandler AutoSizeChanged
@@ -209,6 +210,8 @@ namespace System.Windows.Forms
             remove => base.AutoSizeChanged -= value;
         }
 
+        /// <summary>Gets or sets the background color.</summary>
+        /// <returns>The background color.</returns>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public override Color BackColor
         {
@@ -222,6 +225,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.ToolBar.BackColor" /> property changes.</summary>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         new public event EventHandler BackColorChanged
         {
@@ -229,6 +233,8 @@ namespace System.Windows.Forms
             remove => base.BackColorChanged -= value;
         }
 
+        /// <summary>Gets or sets the background image.</summary>
+        /// <returns>The background image.</returns>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public override Image BackgroundImage
         {
@@ -242,6 +248,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.ToolBar.BackgroundImage" /> property changes.</summary>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         new public event EventHandler BackgroundImageChanged
         {
@@ -249,6 +256,8 @@ namespace System.Windows.Forms
             remove => base.BackgroundImageChanged -= value;
         }
 
+        /// <summary>Gets or sets the layout for background image.</summary>
+        /// <returns>The layout for background image.</returns>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public override ImageLayout BackgroundImageLayout
         {
@@ -262,6 +271,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.ToolBar.BackgroundImageLayout" /> property changes.</summary>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         new public event EventHandler BackgroundImageLayoutChanged
         {
@@ -451,6 +461,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets the default Input Method Editor (IME) mode supported by this control.</summary>
+        /// <returns>One of the <see cref="T:System.Windows.Forms.ImeMode" /> values.</returns>
         protected override ImeMode DefaultImeMode
         {
             get
@@ -581,6 +593,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets the forecolor .</summary>
+        /// <returns>The forecolor.</returns>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public override Color ForeColor
         {
@@ -594,6 +608,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.ToolBar.ForeColor" /> property changes.</summary>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         new public event EventHandler ForeColorChanged
         {
@@ -670,6 +685,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>This member is not meaningful for this control.</summary>
+        /// <returns>One of the <see cref="T:System.Windows.Forms.ImeMode" /> values.</returns>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         new public ImeMode ImeMode
         {
@@ -683,6 +700,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.ToolBar.ImeMode" /> property changes.</summary>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public new event EventHandler ImeModeChanged
         {
@@ -813,6 +831,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>This member is not meaningful for this control.</summary>
+        /// <returns>A <see cref="T:System.Windows.Forms.RightToLeft" /> value.</returns>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public override RightToLeft RightToLeft
         {
@@ -826,6 +846,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.ToolBar.RightToLeft" /> property changes.</summary>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public new event EventHandler RightToLeftChanged
         {
@@ -884,6 +905,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>This property is not meaningful for this control.</summary>
+        /// <returns>This property is not meaningful for this control.</returns>
         [DefaultValue(false)]
         new public bool TabStop
         {
@@ -897,6 +920,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets the text for the toolbar.</summary>
+        /// <returns>The text for the toolbar.</returns>
         [
         Browsable(false), EditorBrowsable(EditorBrowsableState.Never),
         Bindable(false),
@@ -914,6 +939,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.ToolBar.Text" /> property changes.</summary>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         new public event EventHandler TextChanged
         {
@@ -1052,6 +1078,7 @@ namespace System.Windows.Forms
             this.SuspendDrawing();
         }
 
+        /// <summary>Creates a handle for the control.</summary>
         protected override void CreateHandle()
         {
             if (!RecreatingHandle)
@@ -1082,6 +1109,9 @@ namespace System.Windows.Forms
             ImageList = null;
         }
 
+        /// <summary>Releases the unmanaged resources used by the <see cref="T:System.Windows.Forms.ToolBar" /> and optionally releases the managed resources.</summary>
+        /// <param name="disposing">
+        ///   <see langword="true" /> to release both managed and unmanaged resources; <see langword="false" /> to release only unmanaged resources.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -1722,6 +1752,8 @@ namespace System.Windows.Forms
             ResetMouseEventArgs();
         }
 
+        /// <summary>Processes Windows messages.</summary>
+        /// <param name="m">The Windows <see cref="T:System.Windows.Forms.Message" /> to process.</param>
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
