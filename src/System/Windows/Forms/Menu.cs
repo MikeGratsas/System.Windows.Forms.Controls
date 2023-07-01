@@ -1002,6 +1002,8 @@ namespace System.Windows.Forms
             /// <summary>Determines if the specified <see cref="T:System.Windows.Forms.MenuItem" /> is a member of the collection.</summary>
             /// <param name="value">The <see cref="T:System.Windows.Forms.MenuItem" /> to locate in the collection.</param>
             /// <returns>
+            ///   <see langword="true" /> if the <see cref="T:System.Windows.Forms.MenuItem" /> is a member of the collection; otherwise, <see langword="false" />.
+            /// </returns>
             public bool Contains(MenuItem value)
             {
                 return IndexOf(value) != -1;

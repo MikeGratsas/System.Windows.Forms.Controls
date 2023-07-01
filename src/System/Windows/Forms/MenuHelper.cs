@@ -5,6 +5,9 @@ using static Interop;
 
 namespace System.Windows.Forms
 {
+    /// <summary>
+    ///  This is the class to contain the extension method for all menu components (MainMenu and ContextMenu).
+    /// </summary>
     public static class MenuHelper
     {
         internal static MainMenu GetCurrentMenu(this Form form)

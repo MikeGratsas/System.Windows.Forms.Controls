@@ -1,0 +1,48 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    strategy:
+      matrix:
+        dotnet-version: [ '3.1.x', '6.0.x', '7.0.x' ]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET ${{ matrix.dotnet-version }}
+      uses: actions/setup-dotnet@v3
+      id: stepid
+      with:
+        dotnet-version: ${{ matrix.dotnet-version }}
+        source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - name: Display dotnet version
+      run: echo '${{ steps.stepid.outputs.dotnet-version }}'
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build -c Release --no-restore
+    - name: Test
+      run: dotnet test -c Release --no-build --verbosity normal
+    - name: Pack nugets
+      run: dotnet pack -c Release --no-build
+    - name: Publish the package to GPR
+      run: dotnet nuget push ${{ github.workspace }}/bin/Release/*.nupkg
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: dotnet-results-${{ matrix.dotnet-version }}
+        path: ${{ github.workspace }}/bin/Release/
+        

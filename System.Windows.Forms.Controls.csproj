@@ -34,6 +34,7 @@
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
+    <Compile Remove="src\System\Windows\Forms\MenuMerge.cs" />
     <Compile Remove="src\System\Windows\Forms\StatusBar.cs" />
     <Compile Remove="src\System\Windows\Forms\StatusBarDrawItemEventArgs.cs" />
     <Compile Remove="src\System\Windows\Forms\StatusBarDrawItemEventHandler.cs" />

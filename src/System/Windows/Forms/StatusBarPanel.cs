@@ -352,6 +352,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets an object that contains data about the <see cref="T:System.Windows.Forms.StatusBarPanel" />.</summary>
+        /// <returns>The <see cref="T:System.Object" /> that contains data about the <see cref="T:System.Windows.Forms.StatusBarPanel" />.</returns>
         [
         SRCategory(nameof(SR.CatData)),
         Localizable(false),
@@ -504,6 +506,9 @@ namespace System.Windows.Forms
             initializing = true;
         }
 
+        /// <summary>Releases the unmanaged resources used by the <see cref="T:System.Windows.Forms.StatusBarPanel" /> and optionally releases the managed resources.</summary>
+        /// <param name="disposing">
+        ///   <see langword="true" /> to release both managed and unmanaged resources; <see langword="false" /> to release only unmanaged resources.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)

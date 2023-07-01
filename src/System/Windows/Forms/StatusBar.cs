@@ -136,6 +136,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the value of the <see cref="P:System.Windows.Forms.StatusBar.BackColor" /> property changes.</summary>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         new public event EventHandler BackColorChanged
         {
@@ -161,6 +162,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the value of the <see cref="P:System.Windows.Forms.StatusBar.BackgroundImage" /> property is changed.</summary>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         new public event EventHandler BackgroundImageChanged
         {
@@ -168,6 +170,8 @@ namespace System.Windows.Forms
             remove => base.BackgroundImageChanged -= value;
         }
 
+        /// <summary>Gets or sets the layout of the background image of the <see cref="T:System.Windows.Forms.StatusBar" />.</summary>
+        /// <returns>One of the <see cref="T:System.Windows.Forms.ImageLayout" /> values.</returns>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public override ImageLayout BackgroundImageLayout
         {
@@ -181,6 +185,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the value of the <see cref="P:System.Windows.Forms.StatusBar.BackgroundImageLayout" /> property changes.</summary>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         new public event EventHandler BackgroundImageLayoutChanged
         {
@@ -213,6 +218,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets the default Input Method Editor (IME) mode supported by this control.</summary>
+        /// <returns>One of the <see cref="T:System.Windows.Forms.ImeMode" /> values.</returns>
         protected override ImeMode DefaultImeMode
         {
             get
@@ -304,6 +311,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the value of the <see cref="P:System.Windows.Forms.StatusBar.ForeColor" /> property changes.</summary>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         new public event EventHandler ForeColorChanged
         {
@@ -311,6 +319,8 @@ namespace System.Windows.Forms
             remove => base.ForeColorChanged -= value;
         }
 
+        /// <summary>Gets or sets the Input Method Editor (IME) mode supported by this control.</summary>
+        /// <returns>One of the <see cref="T:System.Windows.Forms.ImeMode" /> values.</returns>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         new public ImeMode ImeMode
         {
@@ -324,6 +334,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the value of the <see cref="P:System.Windows.Forms.StatusBar.ImeMode" /> property changes.</summary>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public new event EventHandler ImeModeChanged
         {
@@ -586,6 +597,7 @@ namespace System.Windows.Forms
             layoutDirty = false;
         }
 
+        /// <summary>Overrides <see cref="M:System.Windows.Forms.Control.CreateHandle" />.</summary>
         protected override void CreateHandle()
         {
             if (!RecreatingHandle)
@@ -699,6 +711,8 @@ namespace System.Windows.Forms
             ((StatusBarPanelClickEventHandler)Events[EVENT_PANELCLICK])?.Invoke(this, e);
         }
 
+        /// <summary>Raises the <see langword="Layout" /> event.</summary>
+        /// <param name="levent">A <see langword="LayoutEventArgs" /> that contains the event data.</param>
         protected override void OnLayout(LayoutEventArgs levent)
         {
             if (showPanels)
@@ -1318,6 +1332,9 @@ namespace System.Windows.Forms
                 }
             }
 
+            /// <summary>Gets a value indicating whether this collection is read-only.</summary>
+            /// <returns>
+            ///   <see langword="true" /> if this collection is read-only; otherwise, <see langword="false" />.</returns>
             public bool IsReadOnly
             {
                 get
@@ -1361,6 +1378,9 @@ namespace System.Windows.Forms
                 }
             }
 
+            /// <summary>Adds an array of <see cref="T:System.Windows.Forms.StatusBarPanel" /> objects to the collection.</summary>
+            /// <param name="panels">An array of <see cref="T:System.Windows.Forms.StatusBarPanel" /> objects to add.</param>
+            /// <exception cref="T:System.ArgumentNullException">The array of <see cref="T:System.Windows.Forms.StatusBarPanel" /> objects being added to the collection was <see langword="null" />.</exception>
             public virtual void AddRange(StatusBarPanel[] panels)
             {
                 if (panels == null)
@@ -1373,6 +1393,10 @@ namespace System.Windows.Forms
                 }
             }
 
+            /// <summary>Determines whether the specified panel is located within the collection.</summary>
+            /// <param name="panel">The <see cref="T:System.Windows.Forms.StatusBarPanel" /> to locate in the collection.</param>
+            /// <returns>
+            ///   <see langword="true" /> if the panel is located within the collection; otherwise, <see langword="false" />.</returns>
             public bool Contains(StatusBarPanel panel)
             {
                 return IndexOf(panel) != -1;
@@ -1398,6 +1422,9 @@ namespace System.Windows.Forms
                 return IsValidIndex(IndexOfKey(key));
             }
 
+            /// <summary>Returns the index within the collection of the specified panel.</summary>
+            /// <param name="panel">The <see cref="T:System.Windows.Forms.StatusBarPanel" /> to locate in the collection.</param>
+            /// <returns>The zero-based index where the panel is located within the collection; otherwise, negative one (-1).</returns>
             public int IndexOf(StatusBarPanel panel)
             {
                 for (int index = 0; index < Count; ++index)
