@@ -750,9 +750,7 @@ namespace System.Windows.Forms
             /// <summary>Retrieves the <see cref="T:System.Windows.Forms.MenuItem" /> at the specified indexed location in the collection.</summary>
             /// <param name="index">The indexed location of the <see cref="T:System.Windows.Forms.MenuItem" /> in the collection.</param>
             /// <returns>The <see cref="T:System.Windows.Forms.MenuItem" /> at the specified location.</returns>
-            /// <exception cref="T:System.ArgumentException">The <paramref name="value" /> parameter is <see langword="null" />.  
-            ///  or  
-            ///  The <paramref name="index" /> parameter is less than zero.  
+            /// <exception cref="T:System.ArgumentOutOfRangeException">The <paramref name="index" /> parameter is less than zero.  
             ///  or  
             ///  The <paramref name="index" /> parameter is greater than the number of menu items in the collection, and the collection of menu items is not <see langword="null" />.</exception>
             public virtual MenuItem this[int index]

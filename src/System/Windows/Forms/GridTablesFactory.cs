@@ -4,6 +4,7 @@
 
 namespace System.Windows.Forms
 {
+    /// <summary>Provides the <see cref="M:System.Windows.Forms.GridTablesFactory.CreateGridTables(System.Windows.Forms.DataGridTableStyle,System.Object,System.String,System.Windows.Forms.BindingContext)" /> method.</summary>
     public static class GridTablesFactory
     {
         /// <summary>
