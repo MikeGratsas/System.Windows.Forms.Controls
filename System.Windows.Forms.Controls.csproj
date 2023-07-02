@@ -30,7 +30,7 @@
     <PackageVersion>1.0.5000-rc1</PackageVersion>
     <Product>System.Windows.Forms.Controls</Product>
     <Title>System.Windows.Forms.Controls</Title>
-    <PackageIcon>http://go.microsoft.com/fwlink/?LinkID=288859</PackageIcon>
+    <PackageIconUrl>http://go.microsoft.com/fwlink/?LinkID=288859</PackageIconUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>This project is based on Microsoft code.</PackageReleaseNotes>
   </PropertyGroup>
