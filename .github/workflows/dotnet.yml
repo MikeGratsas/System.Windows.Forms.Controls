@@ -39,9 +39,9 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: dotnet-results-${{ steps.stepid.outputs.dotnet-version }}
-        path: ${{ github.workspace }}
+        path: ${{ github.workspace }}/bin/Release
     - name: Publish the package to Github Package Registry
-      run: dotnet nuget push ${{ github.workspace }}/bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN --skip-duplicate
+      run: dotnet nuget push ${{ github.workspace }}/bin/Release/*.nupkg -k ${{secrets.GITHUB_TOKEN}} --skip-duplicate
     - name: Publish the package to NuGet Gallery
       run: dotnet nuget push ${{ github.workspace }}/bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
       env:
