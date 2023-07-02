@@ -55,6 +55,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs before the shortcut menu is displayed.</summary>
         [SRDescription(nameof(SR.MenuItemOnInitDescr))]
         public event EventHandler Popup
         {
@@ -144,6 +145,12 @@ namespace System.Windows.Forms
             onCollapse?.Invoke(this, e);
         }
 
+        /// <summary>Processes a command key.</summary>
+        /// <param name="msg">A <see cref="T:System.Windows.Forms.Message" />, passed by reference, that represents the window message to process.</param>
+        /// <param name="keyData">One of the <see cref="T:System.Windows.Forms.Keys" /> values that represents the key to process.</param>
+        /// <param name="control">The control to which the command key applies.</param>
+        /// <returns>
+        ///   <see langword="true" /> if the character was processed by the control; otherwise, <see langword="false" />.</returns>
         protected internal virtual bool ProcessCmdKey(ref Message msg, Keys keyData, Control control)
         {
             sourceControl = control;

@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace System.Windows.Forms
 {
-    public static class CurrencyManagerHelper
+    internal static class CurrencyManagerHelper
     {
         internal static string GetListName(this CurrencyManager currencyManager)
         {

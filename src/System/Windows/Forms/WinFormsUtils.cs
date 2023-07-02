@@ -169,7 +169,7 @@ namespace System.Windows.Forms
             string typeOfControl = "Unknown";
             string nameOfControl = "Name: ";
             Control? c = Control.FromHandle(hwnd);
-            if (c is not null)
+            if (c != null)
             {
                 typeOfControl = c.GetType().ToString();
                 if (!string.IsNullOrEmpty(c.Name))
@@ -181,7 +181,7 @@ namespace System.Windows.Forms
                     nameOfControl += "Unknown";
 
                     // Add some extra debug info for ToolStripDropDowns.
-                    if (c is ToolStripDropDown dd && dd.OwnerItem is not null)
+                    if (c is ToolStripDropDown dd && dd.OwnerItem != null)
                     {
                         nameOfControl += Environment.NewLine + "\tOwnerItem: " + dd.OwnerItem.ToString();
                     }

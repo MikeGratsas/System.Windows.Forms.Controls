@@ -398,6 +398,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets the background color of odd-numbered rows of the grid.</summary>
+        /// <returns>A <see cref="T:System.Drawing.Color" /> that represents the alternating background color. The default is the system color for windows (<see cref="P:System.Drawing.SystemColors.Window" />).</returns>
         [
          SRCategory(nameof(SR.CatColors)),
          SRDescription(nameof(SR.DataGridAlternatingBackColorDescr))
@@ -428,6 +430,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGrid.AlternatingBackColor" /> property to its default color.</summary>
         public void ResetAlternatingBackColor()
         {
             if (ShouldSerializeAlternatingBackColor())
@@ -437,6 +440,9 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGrid.AlternatingBackColor" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.</returns>
         protected virtual bool ShouldSerializeAlternatingBackColor()
         {
             return !AlternatingBackBrush.Equals(DefaultAlternatingBackBrush);
@@ -478,6 +484,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGrid.BackColor" /> property to its default value.</summary>
         public override void ResetBackColor()
         {
             if (!BackColor.Equals(DefaultBackBrush.Color))
@@ -486,6 +493,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets the foreground color (typically the color of the text) property of the <see cref="T:System.Windows.Forms.DataGrid" /> control.</summary>
+        /// <returns>A <see cref="T:System.Drawing.Color" /> that represents the foreground color. The default is <see cref="P:System.Drawing.SystemBrushes.WindowText" /> color.</returns>
         [
          SRCategory(nameof(SR.CatColors)),
          SRDescription(nameof(SR.ControlForeColorDescr))
@@ -501,6 +510,8 @@ namespace System.Windows.Forms
                 base.ForeColor = value;
             }
         }
+
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGrid.ForeColor" /> property to its default value.</summary>
         public override void ResetForeColor()
         {
             if (!ForeColor.Equals(DefaultForeBrush.Color))
@@ -565,6 +576,7 @@ namespace System.Windows.Forms
 
         private static readonly object EVENT_BORDERSTYLECHANGED = new object();
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGrid.BorderStyle" /> has changed.</summary>
         [SRCategory(nameof(SR.CatPropertyChanged)), SRDescription(nameof(SR.DataGridOnBorderStyleChangedDescr))]
         public event EventHandler BorderStyleChanged
         {
@@ -591,6 +603,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets the default size of the control.</summary>
+        /// <returns>The default size of the control.</returns>
         protected override Size DefaultSize
         {
             get
@@ -910,6 +924,7 @@ namespace System.Windows.Forms
 
         private static readonly object EVENT_CAPTIONVISIBLECHANGED = new object();
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGrid.CaptionVisible" /> property has changed.</summary>
         [SRCategory(nameof(SR.CatPropertyChanged)), SRDescription(nameof(SR.DataGridOnCaptionVisibleChangedDescr))]
         public event EventHandler CaptionVisibleChanged
         {
@@ -1244,6 +1259,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGrid.CurrentCell" /> property has changed.</summary>
         [SRCategory(nameof(SR.CatPropertyChanged)), SRDescription(nameof(SR.DataGridOnCurrentCellChangedDescr))]
         public event EventHandler CurrentCellChanged
         {
@@ -1275,6 +1291,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets the background color of selected rows.</summary>
+        /// <returns>A <see cref="T:System.Drawing.Color" /> that represents the background color of selected rows. The default is the <see cref="P:System.Drawing.SystemBrushes.ActiveCaption" /> color.</returns>
         [
          SRCategory(nameof(SR.CatColors)),
          SRDescription(nameof(SR.DataGridSelectionBackColorDescr))
@@ -1322,11 +1340,15 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGrid.SelectionBackColor" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.</returns>
         protected bool ShouldSerializeSelectionBackColor()
         {
             return !DefaultSelectionBackBrush.Equals(selectionBackBrush);
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGrid.SelectionBackColor" /> property to its default value.</summary>
         public void ResetSelectionBackColor()
         {
             if (ShouldSerializeSelectionBackColor())
@@ -1335,6 +1357,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets the background color of selected rows.</summary>
+        /// <returns>A <see cref="T:System.Drawing.Color" /> that represents the background color of selected rows. The default is the <see cref="P:System.Drawing.SystemBrushes.ActiveCaption" /> color.</returns>
         [
          SRCategory(nameof(SR.CatColors)),
          SRDescription(nameof(SR.DataGridSelectionForeColorDescr))
@@ -1361,11 +1385,15 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGrid.SelectionBackColor" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.</returns>
         protected virtual bool ShouldSerializeSelectionForeColor()
         {
             return !SelectionForeBrush.Equals(DefaultSelectionForeBrush);
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGrid.SelectionBackColor" /> property to its default value.</summary>
         public void ResetSelectionForeColor()
         {
             if (ShouldSerializeSelectionForeColor())
@@ -1609,6 +1637,7 @@ namespace System.Windows.Forms
 
         private static readonly object EVENT_DATASOURCECHANGED = new object();
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGrid.DataSource" /> property value has changed.</summary>
         [SRCategory(nameof(SR.CatPropertyChanged)), SRDescription(nameof(SR.DataGridOnDataSourceChangedDescr))]
         public event EventHandler DataSourceChanged
         {
@@ -1647,6 +1676,11 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Sets the <see cref="P:System.Windows.Forms.DataGrid.DataSource" /> and <see cref="P:System.Windows.Forms.DataGrid.DataMember" /> properties at run time.</summary>
+        /// <param name="dataSource">The data source for the <see cref="T:System.Windows.Forms.DataGrid" /> control.</param>
+        /// <param name="dataMember">The <see cref="P:System.Windows.Forms.DataGrid.DataMember" /> string that specifies the table to bind to within the object returned by the <see cref="P:System.Windows.Forms.DataGrid.DataSource" /> property.</param>
+        /// <exception cref="T:System.ArgumentException">One or more of the arguments are invalid.</exception>
+        /// <exception cref="T:System.ArgumentNullException">The <paramref name="dataSource" /> argument is <see langword="null" />.</exception>
         public void SetDataBinding(object dataSource, string dataMember)
         {
             parentRows.Clear();
@@ -1657,6 +1691,8 @@ namespace System.Windows.Forms
             Set_ListManager(dataSource, dataMember, false);
         }
 
+        /// <summary>Gets the <see cref="T:System.Windows.Forms.CurrencyManager" /> for this <see cref="T:System.Windows.Forms.DataGrid" /> control.</summary>
+        /// <returns>The <see cref="T:System.Windows.Forms.CurrencyManager" /> for this <see cref="T:System.Windows.Forms.DataGrid" /> control.</returns>
         [
          Browsable(false), EditorBrowsable(EditorBrowsableState.Advanced),
          SRDescription(nameof(SR.DataGridListManagerDescr))
@@ -2008,11 +2044,15 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGrid.GridLineColor" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.</returns>
         protected virtual bool ShouldSerializeGridLineColor()
         {
             return !GridLineBrush.Equals(DefaultGridLineBrush);
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGrid.GridLineColor" /> property to its default value.</summary>
         public void ResetGridLineColor()
         {
             if (ShouldSerializeGridLineColor())
@@ -2104,6 +2144,7 @@ namespace System.Windows.Forms
 
         private static readonly object EVENT_PARENTROWSLABELSTYLECHANGED = new object();
 
+        /// <summary>Occurs when the label style of the parent row is changed.</summary>
         [SRCategory(nameof(SR.CatPropertyChanged)), SRDescription(nameof(SR.DataGridOnParentRowsLabelStyleChangedDescr))]
         public event EventHandler ParentRowsLabelStyleChanged
         {
@@ -2161,6 +2202,7 @@ namespace System.Windows.Forms
 
         private static readonly object EVENT_FLATMODECHANGED = new object();
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGrid.FlatMode" /> has changed.</summary>
         [SRCategory(nameof(SR.CatPropertyChanged)), SRDescription(nameof(SR.DataGridOnFlatModeChangedDescr))]
         public event EventHandler FlatModeChanged
         {
@@ -2221,11 +2263,15 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGrid.HeaderBackColor" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.</returns>
         protected virtual bool ShouldSerializeHeaderBackColor()
         {
             return !HeaderBackBrush.Equals(DefaultHeaderBackBrush);
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGrid.HeaderBackColor" /> property to its default value.</summary>
         public void ResetHeaderBackColor()
         {
             if (ShouldSerializeHeaderBackColor())
@@ -2251,6 +2297,9 @@ namespace System.Windows.Forms
             backgroundBrush = DefaultBackgroundBrush;
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGrid.BackgroundColor" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.</returns>
         protected virtual bool ShouldSerializeBackgroundColor()
         {
             return !BackgroundBrush.Equals(DefaultBackgroundBrush);
@@ -2295,6 +2344,7 @@ namespace System.Windows.Forms
 
         private static readonly object EVENT_BACKGROUNDCOLORCHANGED = new object();
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGrid.BackgroundColor" /> has changed.</summary>
         [SRCategory(nameof(SR.CatPropertyChanged)), SRDescription(nameof(SR.DataGridOnBackgroundColorChangedDescr))]
         public event EventHandler BackgroundColorChanged
         {
@@ -2332,11 +2382,15 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGrid.HeaderFont" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.</returns>
         protected bool ShouldSerializeHeaderFont()
         {
             return (headerFont != null);
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGrid.HeaderFont" /> property to its default value.</summary>
         public void ResetHeaderFont()
         {
             if (headerFont != null)
@@ -2391,11 +2445,15 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGrid.HeaderForeColor" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.</returns>
         protected virtual bool ShouldSerializeHeaderForeColor()
         {
             return !HeaderForePen.Equals(DefaultHeaderForePen);
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGrid.HeaderForeColor" /> property to its default value.</summary>
         public void ResetHeaderForeColor()
         {
             if (ShouldSerializeHeaderForeColor())
@@ -2524,6 +2582,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets the horizontal scroll bar for the grid.</summary>
+        /// <returns>The <see cref="T:System.Windows.Forms.ScrollBar" /> for the grid.</returns>
         [
          SRDescription(nameof(SR.DataGridHorizScrollBarDescr))
         ]
@@ -2589,6 +2649,7 @@ namespace System.Windows.Forms
             return !LinkBrush.Equals(DefaultLinkBrush);
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGrid.LinkColor" /> property to its default value.</summary>
         public void ResetLinkColor()
         {
             if (ShouldSerializeLinkColor())
@@ -2628,12 +2689,16 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGrid.LinkHoverColor" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.</returns>
         protected virtual bool ShouldSerializeLinkHoverColor()
         {
             return false;
             // return !LinkHoverBrush.Equals(defaultLinkHoverBrush);
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGrid.LinkHoverColor" /> property to its default value.</summary>
         public void ResetLinkHoverColor()
         {
             /*
@@ -2693,6 +2758,7 @@ namespace System.Windows.Forms
 
         private static readonly object EVENT_ALLOWNAVIGATIONCHANGED = new object();
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGrid.AllowNavigation" /> property has changed.</summary>
         [SRCategory(nameof(SR.CatPropertyChanged)), SRDescription(nameof(SR.DataGridOnNavigationModeChangedDescr))]
         public event EventHandler AllowNavigationChanged
         {
@@ -2700,6 +2766,8 @@ namespace System.Windows.Forms
             remove => Events.RemoveHandler(EVENT_ALLOWNAVIGATIONCHANGED, value);
         }
 
+        /// <summary>This member is not meaningful for this control.</summary>
+        /// <returns>The type of cursor to display as the mouse pointer moves over the object.</returns>
         [
             Browsable(false), EditorBrowsable(EditorBrowsableState.Never)
         ]
@@ -2717,6 +2785,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the value of the <see cref="P:System.Windows.Forms.DataGrid.Cursor" /> property changes.</summary>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         new public event EventHandler CursorChanged
         {
@@ -2724,6 +2793,8 @@ namespace System.Windows.Forms
             remove => base.CursorChanged -= value;
         }
 
+        /// <summary>This member is not meaningful for this control.</summary>
+        /// <returns>The background image associated with the control.</returns>
         [
             Browsable(false), EditorBrowsable(EditorBrowsableState.Never)
         ]
@@ -2741,6 +2812,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>This member is not meaningful for this control.</summary>
+        /// <returns>An <see cref="T:System.Windows.Forms.ImageLayout" /> value.</returns>
         [
             Browsable(false), EditorBrowsable(EditorBrowsableState.Never)
         ]
@@ -2758,6 +2831,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the value of the <see cref="P:System.Windows.Forms.DataGrid.BackgroundImage" /> property changes.</summary>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         new public event EventHandler BackgroundImageChanged
         {
@@ -2765,6 +2839,7 @@ namespace System.Windows.Forms
             remove => base.BackgroundImageChanged -= value;
         }
 
+        /// <summary>Occurs when the value of the <see cref="P:System.Windows.Forms.DataGrid.BackgroundImageLayout" /> property changes.</summary>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         new public event EventHandler BackgroundImageLayoutChanged
         {
@@ -2925,6 +3000,9 @@ namespace System.Windows.Forms
             preferredRowHeight = defaultFontHeight + 3;
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGrid.PreferredRowHeight" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.</returns>
         protected bool ShouldSerializePreferredRowHeight()
         {
             return preferredRowHeight != defaultFontHeight + 3;
@@ -2991,6 +3069,7 @@ namespace System.Windows.Forms
 
         private static readonly object EVENT_READONLYCHANGED = new object();
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGrid.ReadOnly" /> property value changes.</summary>
         [SRCategory(nameof(SR.CatPropertyChanged)), SRDescription(nameof(SR.DataGridOnReadOnlyChangedDescr))]
         public event EventHandler ReadOnlyChanged
         {
@@ -3057,6 +3136,7 @@ namespace System.Windows.Forms
 
         private static readonly object EVENT_PARENTROWSVISIBLECHANGED = new object();
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGrid.ParentRowsVisible" /> property value changes.</summary>
         [SRCategory(nameof(SR.CatPropertyChanged)), SRDescription(nameof(SR.DataGridOnParentRowsVisibleChangedDescr))]
         public event EventHandler ParentRowsVisibleChanged
         {
@@ -3095,6 +3175,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets the width of row headers.</summary>
+        /// <returns>The width of row headers in the <see cref="T:System.Windows.Forms.DataGrid" />. The default is 35.</returns>
         [
          SRCategory(nameof(SR.CatLayout)),
          DefaultValue(defaultRowHeaderWidth),
@@ -3141,6 +3223,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the value of the <see cref="P:System.Windows.Forms.DataGrid.Text" /> property changes.</summary>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         new public event EventHandler TextChanged
         {
