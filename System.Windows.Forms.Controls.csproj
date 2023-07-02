@@ -26,7 +26,7 @@
     <PackageProjectUrl>https://github.com/MikeGratsas/System.Windows.Forms.Controls</PackageProjectUrl>
     <RepositoryUrl>https://github.com/MikeGratsas/System.Windows.Forms.Controls</RepositoryUrl>
     <PackageTags>System.Windows.Forms;WinForms;Controls;Legacy;Compatibility;</PackageTags>
-    <PackageId>MikeGratsas.System.Windows.Forms.Controls</PackageId>
+    <PackageId>SharpImg.System.Windows.Forms.Controls</PackageId>
     <PackageVersion>1.0.5000</PackageVersion>
     <Product>System.Windows.Forms.Controls</Product>
     <Title>System.Windows.Forms.Controls</Title>
