@@ -26,7 +26,7 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - name: Display dotnet version
-      run: echo '${{ steps.stepid.outputs.dotnet-version }}'
+      run: dotnet --version
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
@@ -35,15 +35,15 @@ jobs:
       run: dotnet test -c Release --no-build --verbosity normal
     - name: Pack nugets
       run: dotnet pack -c Release --no-build
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: dotnet-results-${{ steps.stepid.outputs.dotnet-version }}
+        path: ${{ github.workspace }}
     - name: Publish the package to Github Package Registry
-      run: dotnet nuget push ${{ github.workspace }}/bin/Release/*.nupkg
+      run: dotnet nuget push ${{ github.workspace }}/bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN --skip-duplicate
     - name: Publish the package to NuGet Gallery
       run: dotnet nuget push ${{ github.workspace }}/bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
       env:
         NUGET_AUTH_TOKEN: ${{secrets.NUGET_TOKEN}}
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: dotnet-results-${{ matrix.dotnet-version }}
-        path: ${{ github.workspace }}/bin/Release/
         
