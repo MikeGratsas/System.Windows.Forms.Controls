@@ -17,7 +17,7 @@
     <RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
     <EnableNETAnalyzers>False</EnableNETAnalyzers>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <DocumentationFile>$(MSBuildProjectName).xml</DocumentationFile>
+    <DocumentationFile>$(OutputPath)$(MSBuildProjectName).xml</DocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>1.0.5001</Version>
     <Authors>Mike Gratsas</Authors>
@@ -28,7 +28,7 @@
     <RepositoryUrl>https://github.com/MikeGratsas/System.Windows.Forms.Controls</RepositoryUrl>
     <PackageTags>System.Windows.Forms;WinForms;Controls;Legacy;Compatibility;</PackageTags>
     <PackageId>SharpImg.System.Windows.Forms.Controls</PackageId>
-    <PackageVersion>1.0.5000</PackageVersion>
+    <PackageVersion>1.0.5001</PackageVersion>
     <Product>System.Windows.Forms.Controls</Product>
     <Title>System.Windows.Forms.Controls</Title>
     <PackageIconUrl>http://go.microsoft.com/fwlink/?LinkID=288859</PackageIconUrl>
