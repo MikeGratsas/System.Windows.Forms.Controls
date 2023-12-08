@@ -26,6 +26,7 @@ namespace System.Windows.Forms
         // takes place
         private DataGrid dataGrid;
 
+        /// <summary>Initializes a new instance of the <see cref="T:System.Windows.Forms.DataGridTextBox" /> class.</summary>
         public DataGridTextBox() : base()
         {
             TabStop = false;
@@ -38,6 +39,8 @@ namespace System.Windows.Forms
             dataGrid = parentGrid;
         }
 
+        /// <summary>Raises the <see cref="M:System.Windows.Forms.Control.WndProc(System.Windows.Forms.Message@)" /> event.</summary>
+        /// <param name="m">A <see cref="T:System.Windows.Forms.Message" /> that contains the event data.</param>
         protected override void WndProc(ref Message m)
         {
             // but what if we get a CtrlV?
@@ -52,11 +55,15 @@ namespace System.Windows.Forms
 
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.Control.MouseWheel" /> event.</summary>
+        /// <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs" /> that contains the event data.</param>
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             dataGrid.TextBoxOnMouseWheel(e);
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.Control.KeyPress" /> event.</summary>
+        /// <param name="e">A <see cref="T:System.Windows.Forms.KeyPressEventArgs" /> that contains the event data.</param>
         protected override void OnKeyPress(KeyPressEventArgs e)
         {
             base.OnKeyPress(e);
@@ -87,6 +94,11 @@ namespace System.Windows.Forms
             dataGrid.ColumnStartedEditing(Bounds);
         }
 
+        /// <summary>Indicates whether the key pressed is processed further (for example, to navigate, or escape). This property is read-only.</summary>
+        /// <param name="m">A <see cref="T:System.Windows.Forms.Message" />, passed by reference, that contains the key data.</param>
+        /// <returns>
+        ///   <see langword="true" /> if the key is consumed, <see langword="false" /> to if the key is further processed.
+        /// </returns>
         protected override bool ProcessKeyMessage(ref Message m)
         {
             Keys key = (Keys)unchecked((int)(long)m.WParam);
@@ -279,6 +291,10 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets a value indicating whether the <see cref="T:System.Windows.Forms.DataGridTextBox" /> is in a mode that allows either editing or navigating.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the controls is in navigation mode, and editing has not begun; otherwise, <see langword="false" />. The default is <see langword="true" />.
+        /// </returns>
         public bool IsInEditOrNavigateMode
         {
             get

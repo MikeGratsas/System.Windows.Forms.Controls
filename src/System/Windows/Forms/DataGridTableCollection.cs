@@ -100,6 +100,8 @@ namespace System.Windows.Forms
             owner = grid;
         }
 
+        /// <summary>Gets the underlying list.</summary>
+        /// <returns>An <see cref="T:System.Collections.ArrayList" /> that contains the table data.</returns>
         protected override ArrayList List
         {
             get
@@ -206,6 +208,8 @@ namespace System.Windows.Forms
             OnCollectionChanged(new CollectionChangeEventArgs(CollectionChangeAction.Refresh, null));
         }
 
+        /// <summary>Adds an array of table styles to the collection.</summary>
+        /// <param name="tables">An array of <see cref="T:System.Windows.Forms.DataGridTableStyle" /> objects.</param>
         public virtual void AddRange(DataGridTableStyle[] tables)
         {
             if (tables == null)
@@ -221,12 +225,14 @@ namespace System.Windows.Forms
             OnCollectionChanged(new CollectionChangeEventArgs(CollectionChangeAction.Refresh, null));
         }
 
+        /// <summary>Occurs when the collection has changed.</summary>
         public event CollectionChangeEventHandler CollectionChanged
         {
             add => onCollectionChanged += value;
             remove => onCollectionChanged -= value;
         }
 
+        /// <summary>Clears the collection.</summary>
         public void Clear()
         {
             for (int i = 0; i < items.Count; i++)
@@ -280,6 +286,8 @@ namespace System.Windows.Forms
         }
         */
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.GridTableStylesCollection.CollectionChanged" /> event.</summary>
+        /// <param name="e">A <see cref="T:System.ComponentModel.CollectionChangeEventArgs" /> containing the event data.</param>
         protected void OnCollectionChanged(CollectionChangeEventArgs e)
         {
             onCollectionChanged?.Invoke(this, e);
@@ -302,6 +310,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Removes the specified <see cref="T:System.Windows.Forms.DataGridTableStyle" />.</summary>
+        /// <param name="table">The <see cref="T:System.Windows.Forms.DataGridTableStyle" /> to remove.</param>
         public void Remove(DataGridTableStyle table)
         {
             int tableIndex = -1;
@@ -325,6 +335,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Removes a <see cref="T:System.Windows.Forms.DataGridTableStyle" /> at the specified index.</summary>
+        /// <param name="index">The index of the <see cref="T:System.Windows.Forms.DataGridTableStyle" /> to remove.</param>
         public void RemoveAt(int index)
         {
             DataGridTableStyle element = (DataGridTableStyle)items[index];

@@ -36,12 +36,15 @@ namespace System.Windows.Forms
         /// </summary>
         public DataGridBoolColumn() : base() { }
 
-        /// <summary>
-        ///  Initializes a new instance of a <see cref='DataGridBoolColumn'/> with the specified <see cref='Data.DataColumn'/>.
-        /// </summary>
+        /// <summary>Initializes a new instance of a <see cref="T:System.Windows.Forms.DataGridBoolColumn" /> with the specified <see cref="T:System.ComponentModel.PropertyDescriptor" />.</summary>
+        /// <param name="prop">The <see cref="T:System.ComponentModel.PropertyDescriptor" /> associated with the column.</param>
         public DataGridBoolColumn(PropertyDescriptor prop)
             : base(prop) { }
 
+        /// <summary>Initializes a new instance of a <see cref="T:System.Windows.Forms.DataGridBoolColumn" /> with the specified <see cref="T:System.ComponentModel.PropertyDescriptor" />, and specifying whether the column style is a default column.</summary>
+        /// <param name="prop">The <see cref="T:System.ComponentModel.PropertyDescriptor" /> associated with the column.</param>
+        /// <param name="isDefault">
+        ///   <see langword="true" /> to specify the column as the default; otherwise, <see langword="false" />.</param>
         public DataGridBoolColumn(PropertyDescriptor prop, bool isDefault)
             : base(prop, isDefault) { }
 
@@ -68,6 +71,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridBoolColumn.TrueValue" /> property value is changed.</summary>
         public event EventHandler TrueValueChanged
         {
             add => Events.AddHandler(EventTrueValue, value);
@@ -96,6 +100,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridBoolColumn.FalseValue" /> property is changed.</summary>
         public event EventHandler FalseValueChanged
         {
             add => Events.AddHandler(EventFalseValue, value);
@@ -132,6 +137,7 @@ namespace System.Windows.Forms
         // so there is no data to be pushed back into the backEnd.
         // make isEditing false so that in the Commit call we do not do any work.
         //
+        /// <summary>Notifies a column that it must relinquish the focus to the control it is hosting.</summary>
         protected internal override void ConcedeFocus()
         {
             base.ConcedeFocus();
@@ -459,6 +465,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridBoolColumn.AllowNull" /> property is changed.</summary>
         public event EventHandler AllowNullChanged
         {
             add => Events.AddHandler(EventAllowNull, value);

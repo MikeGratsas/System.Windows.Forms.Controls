@@ -3722,6 +3722,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGrid.BorderStyleChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnBorderStyleChanged(EventArgs e)
         {
             if (Events[EVENT_BORDERSTYLECHANGED] is EventHandler eh)
@@ -3730,6 +3732,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGrid.CaptionVisibleChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnCaptionVisibleChanged(EventArgs e)
         {
             if (Events[EVENT_CAPTIONVISIBLECHANGED] is EventHandler eh)
@@ -3738,6 +3742,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGrid.CurrentCellChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnCurrentCellChanged(EventArgs e)
         {
             if (Events[EVENT_CURRENTCELLCHANGED] is EventHandler eh)
@@ -3746,6 +3752,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGrid.FlatModeChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnFlatModeChanged(EventArgs e)
         {
             if (Events[EVENT_FLATMODECHANGED] is EventHandler eh)
@@ -3754,6 +3762,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGrid.BackgroundColorChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnBackgroundColorChanged(EventArgs e)
         {
             if (Events[EVENT_BACKGROUNDCOLORCHANGED] is EventHandler eh)
@@ -3762,6 +3772,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGrid.AllowNavigationChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnAllowNavigationChanged(EventArgs e)
         {
             if (Events[EVENT_ALLOWNAVIGATIONCHANGED] is EventHandler eh)
@@ -3770,6 +3782,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGrid.ParentRowsVisibleChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnParentRowsVisibleChanged(EventArgs e)
         {
             if (Events[EVENT_PARENTROWSVISIBLECHANGED] is EventHandler eh)
@@ -3778,6 +3792,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGrid.ParentRowsLabelStyleChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnParentRowsLabelStyleChanged(EventArgs e)
         {
             if (Events[EVENT_PARENTROWSLABELSTYLECHANGED] is EventHandler eh)
@@ -3786,6 +3802,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGrid.ReadOnlyChanged" /> event</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnReadOnlyChanged(EventArgs e)
         {
             if (Events[EVENT_READONLYCHANGED] is EventHandler eh)
@@ -4036,6 +4054,8 @@ namespace System.Windows.Forms
             ((EventHandler)Events[EVENT_BACKBUTTONCLICK])?.Invoke(this, e);
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.Control.BackColorChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected override void OnBackColorChanged(EventArgs e)
         {
             backBrush = new SolidBrush(BackColor);
@@ -4044,6 +4064,8 @@ namespace System.Windows.Forms
             base.OnBackColorChanged(e);
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.Control.BindingContextChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected override void OnBindingContextChanged(EventArgs e)
         {
             if (DataSource != null && !gridState[GRIDSTATE_inSetListManager])
@@ -4084,6 +4106,8 @@ namespace System.Windows.Forms
             base.OnBindingContextChanged(e);
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGrid.DataSourceChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnDataSourceChanged(EventArgs e)
         {
             if (Events[EVENT_DATASOURCECHANGED] is EventHandler eh)
@@ -4106,6 +4130,8 @@ namespace System.Windows.Forms
             ((EventHandler)Events[EVENT_DOWNBUTTONCLICK])?.Invoke(this, e);
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.Control.ForeColorChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected override void OnForeColorChanged(EventArgs e)
         {
             foreBrush = new SolidBrush(ForeColor);
@@ -4114,6 +4140,8 @@ namespace System.Windows.Forms
             base.OnForeColorChanged(e);
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.Control.FontChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected override void OnFontChanged(EventArgs e)
         {
             // let the caption know about the event changed
@@ -4154,10 +4182,8 @@ namespace System.Windows.Forms
             base.OnFontChanged(e);
         }
 
-        /// <summary>
-        ///  Raises the <see cref='Control.PaintBackground'/>
-        ///  event.
-        /// </summary>
+        /// <summary>Overrides <see cref="M:System.Windows.Forms.Control.OnPaintBackground(System.Windows.Forms.PaintEventArgs)" /> to prevent painting the background of the <see cref="T:System.Windows.Forms.DataGrid" /> control.</summary>
+        /// <param name="ebe">A <see cref="T:System.Windows.Forms.PaintEventArgs" /> that contains information about the control to paint.</param>
         protected override void OnPaintBackground(PaintEventArgs ebe)
         {
             // null body
@@ -5048,6 +5074,8 @@ namespace System.Windows.Forms
             remove => Events.RemoveHandler(EVENT_SCROLL, value);
         }
 
+        /// <summary>Gets or sets the site of the control.</summary>
+        /// <returns>The <see cref="T:System.ComponentModel.ISite" /> associated with the Control, if any.</returns>
         public override ISite Site
         {
             get
@@ -6713,6 +6741,8 @@ namespace System.Windows.Forms
         //
         // also, tell the current row to lose child focus
         //
+        /// <summary>Informs the <see cref='DataGrid' /> control when the user begins to edit the column at the specified location.</summary>
+        /// <param name="bounds">The <see cref='Rectangle' /> that defines the location of the edited column.</param>
         internal protected virtual void ColumnStartedEditing(Rectangle bounds)
         {
             Debug.Assert(currentRow >= firstVisibleRow && currentRow <= firstVisibleRow + numVisibleRows, "how can one edit a row which is invisible?");
@@ -6769,6 +6799,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Informs the <see cref="T:System.Windows.Forms.DataGrid" /> control when the user begins to edit a column using the specified control.</summary>
+        /// <param name="editingControl">The <see cref="T:System.Windows.Forms.Control" /> used to edit the column.</param>
         internal protected virtual void ColumnStartedEditing(Control editingControl)
         {
             if (editingControl == null)
@@ -6791,12 +6823,20 @@ namespace System.Windows.Forms
         /// <summary>
         ///  Creates a <see cref='DataGridColumnStyle'/> using the specified <see cref='PropertyDescriptor'/>.
         /// </summary>
+        /// <param name="prop">The <see cref='PropertyDescriptor' /> to use for creating the grid column style.</param>
+        /// <param name="isDefault">
+        ///   <see langword="true" /> to set the column style as the default; otherwise, <see langword="false" />.
+        /// </param>
+        /// <returns>The new <see cref="T:System.Windows.Forms.DataGridColumnStyle" />.</returns>
         // protected and virtual because the SimpleDropdownDataGrid will override this
         protected virtual DataGridColumnStyle CreateGridColumn(PropertyDescriptor prop, bool isDefault)
         {
             return myGridTable?.CreateGridColumn(prop, isDefault);
         }
 
+        /// <summary>Creates a new <see cref='DataGridColumnStyle' /> with the specified <see cref='PropertyDescriptor' />.</summary>
+        /// <param name="prop">The <see cref='PropertyDescriptor' /> to use for creating the grid column style.</param>
+        /// <returns>The new <see cref='DataGridColumnStyle' />.</returns>
         protected virtual DataGridColumnStyle CreateGridColumn(PropertyDescriptor prop)
         {
             return myGridTable?.CreateGridColumn(prop);
@@ -9543,6 +9583,7 @@ namespace System.Windows.Forms
             return true;
         }
 
+        /// <summary>Cancels the current edit operation and rolls back all changes.</summary>
         virtual protected void CancelEditing()
         {
             CancelCursorUpdate();
@@ -10094,6 +10135,10 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Adds or removes the <see cref="T:System.Windows.Forms.DataGridTableStyle" /> objects from the container that is associated with the <see cref="T:System.Windows.Forms.DataGrid" />.</summary>
+        /// <param name="site">
+        ///   <see langword="true" /> to add the <see cref="T:System.Windows.Forms.DataGridTableStyle" /> objects to a container; <see langword="false" /> to remove them.
+        /// </param>
         public void SubObjectsSiteChange(bool site)
         {
             DataGrid dgrid = this;
@@ -10605,13 +10650,21 @@ namespace System.Windows.Forms
         [Flags]
         public enum HitTestType
         {
+            /// <summary>The background area, visible when the control contains no table, few rows, or when a table is scrolled to its bottom.</summary>
             None = 0x00000000,
+            /// <summary>A cell in the <see cref="T:System.Windows.Forms.DataGrid" /> control.</summary>
             Cell = 0x00000001,
+            /// <summary>A column header in the <see cref="T:System.Windows.Forms.DataGrid" /> control.</summary>
             ColumnHeader = 0x00000002,
+            /// <summary>A row header in the <see cref="T:System.Windows.Forms.DataGrid" /> control.</summary>
             RowHeader = 0x00000004,
+            /// <summary>The column border, which is the line between column headers. It can be dragged to resize a column's width.</summary>
             ColumnResize = 0x00000008,
+            /// <summary>The row border, which is the line between grid row headers. It can be dragged to resize a row's height.</summary>
             RowResize = 0x00000010,
+            /// <summary>The caption of the <see cref="T:System.Windows.Forms.DataGrid" /> control.</summary>
             Caption = 0x00000020,
+            /// <summary>The parent row section of the <see cref="T:System.Windows.Forms.DataGrid" /> control. The parent row displays information from or about the parent table of the currently displayed child table, such as the name of the parent table, column names and values of the parent record.</summary>
             ParentRows = 0x00000040
         }
 

@@ -261,6 +261,9 @@ namespace System.Windows.Forms
             OnCollectionChanged(new CollectionChangeEventArgs(CollectionChangeAction.Refresh, (DataGridColumnStyle)sender));
         }
 
+        /// <summary>Adds a column style to the collection.</summary>
+        /// <param name="column">The <see cref="T:System.Windows.Forms.DataGridColumnStyle" /> to add.</param>
+        /// <returns>The index of the new <see cref="T:System.Windows.Forms.DataGridColumnStyle" />.</returns>
         public virtual int Add(DataGridColumnStyle column)
         {
             if (isDefault)
@@ -288,6 +291,8 @@ namespace System.Windows.Forms
             return index;
         }
 
+        /// <summary>Adds an array of column style objects to the collection.</summary>
+        /// <param name="columns">An array of <see cref="T:System.Windows.Forms.DataGridColumnStyle" /> objects to add to the collection.</param>
         public void AddRange(DataGridColumnStyle[] columns)
         {
             if (columns == null)
@@ -334,6 +339,7 @@ namespace System.Windows.Forms
             remove => onCollectionChanged -= value;
         }
 
+        /// <summary>Clears the collection of <see cref="T:System.Windows.Forms.DataGridColumnStyle" /> objects.</summary>
         public void Clear()
         {
             for (int i = 0; i < Count; i++)
@@ -547,6 +553,7 @@ namespace System.Windows.Forms
             OnCollectionChanged(new CollectionChangeEventArgs(CollectionChangeAction.Remove, toRemove));
         }
 
+        /// <summary>Sets the <see cref="T:System.ComponentModel.PropertyDescriptor" /> for each column style in the collection to <see langword="null" />.</summary>
         public void ResetPropertyDescriptors()
         {
             for (int i = 0; i < Count; i++)

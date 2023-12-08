@@ -102,6 +102,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridColumnStyle.Alignment" /> property value changes.</summary>
         public event EventHandler AlignmentChanged
         {
             add => Events.AddHandler(s_alignmentEvent, value);
@@ -145,6 +146,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridColumnStyle.PropertyDescriptor" /> property value changes.</summary>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Advanced)]
         public event EventHandler PropertyDescriptorChanged
         {
@@ -152,6 +154,8 @@ namespace System.Windows.Forms
             remove => Events.RemoveHandler(s_propertyDescriptorEvent, value);
         }
 
+        /// <summary>Gets the <see cref="T:System.Windows.Forms.AccessibleObject" /> for the column.</summary>
+        /// <returns>An <see cref="T:System.Windows.Forms.AccessibleObject" /> for the column.</returns>
         protected virtual AccessibleObject CreateHeaderAccessibleObject()
         {
             return new DataGridColumnHeaderAccessibleObject(this);
@@ -239,6 +243,7 @@ namespace System.Windows.Forms
         /// </summary>
         private bool ShouldSerializeFont() => _font != null;
 
+        /// <summary>Occurs when the column's font changes.</summary>
         public event EventHandler FontChanged
         {
             add { }
@@ -273,12 +278,15 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridColumnStyle.HeaderText" /> property value changes.</summary>
         public event EventHandler HeaderTextChanged
         {
             add => Events.AddHandler(s_headerTextEvent, value);
             remove => Events.RemoveHandler(s_headerTextEvent, value);
         }
 
+        /// <summary>Gets or sets the name of the data member to map the column style to.</summary>
+        /// <returns>The name of the data member to map the column style to.</returns>
         [Editor("System.Windows.Forms.Design.DataGridColumnStyleMappingNameEditor, " + AssemblyRef.SystemDesign, typeof(Drawing.Design.UITypeEditor))]
         [Localizable(true)]
         [DefaultValue("")]
@@ -311,6 +319,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridColumnStyle.MappingName" /> value changes.</summary>
         public event EventHandler MappingNameChanged
         {
             add => Events.AddHandler(s_mappingNameEvent, value);
@@ -351,6 +360,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridColumnStyle.NullText" /> value changes.</summary>
         public event EventHandler NullTextChanged
         {
             add => Events.AddHandler(s_nullTextEvent, value);
@@ -374,6 +384,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridColumnStyle.ReadOnly" /> property value changes.</summary>
         public event EventHandler ReadOnlyChanged
         {
             add => Events.AddHandler(s_readOnlyEvent, value);
@@ -409,6 +420,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridColumnStyle.Width" /> property value changes.</summary>
         public event EventHandler WidthChanged
         {
             add => Events.AddHandler(s_widthEvent, value);
@@ -676,6 +688,8 @@ namespace System.Windows.Forms
             descriptor.SetValue(source.List[rowNum], value);
         }
 
+        /// <summary>Informs the <see cref="T:System.Windows.Forms.DataGrid" /> that the user has begun editing the column.</summary>
+        /// <param name="editingControl">The <see cref="T:System.Windows.Forms.Control" /> that hosted by the column.</param>
         protected internal virtual void ColumnStartedEditing(Control editingControl)
         {
             DataGridTableStyle?.DataGrid?.ColumnStartedEditing(editingControl);
@@ -686,14 +700,18 @@ namespace System.Windows.Forms
             ColumnStartedEditing(editingControl);
         }
 
+        /// <summary>Allows the column to free resources when the control it hosts is not needed.</summary>
         protected internal virtual void ReleaseHostedControl()
         {
         }
 
+        /// <summary>Contains a <see cref="T:System.Diagnostics.TraceSwitch" /> that is used by the .NET Framework infrastructure.</summary>
         protected class CompModSwitches
         {
             private static TraceSwitch dgEditColumnEditing;
 
+            /// <summary>Gets a <see cref="T:System.Diagnostics.TraceSwitch" />.</summary>
+            /// <returns>A <see cref="T:System.Diagnostics.TraceSwitch" /> used by the .NET Framework infrastructure.</returns>
             public static TraceSwitch DGEditColumnEditing
             {
                 get
@@ -708,19 +726,25 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Provides an implementation for an object that can be inspected by an accessibility application.</summary>
         [ComVisible(true)]
         protected class DataGridColumnHeaderAccessibleObject : AccessibleObject
         {
+            /// <summary>Initializes a new instance of the <see cref='DataGridColumnStyle.DataGridColumnHeaderAccessibleObject' /> class and specifies the <see cref='DataGridColumnStyle' /> that hosts the object.</summary>
+            /// <param name="owner">The <see cref='DataGridColumnStyle' /> that hosts the object.</param>
             public DataGridColumnHeaderAccessibleObject(DataGridColumnStyle owner) : this()
             {
                 Debug.Assert(owner != null, "DataGridColumnHeaderAccessibleObject must have a valid owner DataGridColumn");
                 Owner = owner;
             }
 
+            /// <summary>Initializes a new instance of the <see cref='DataGridColumnHeaderAccessibleObject' /> class without specifying a <see cref='DataGridColumnStyle' /> host for the object.</summary>
             public DataGridColumnHeaderAccessibleObject() : base()
             {
             }
 
+            /// <summary>Gets the bounding rectangle of a column.</summary>
+            /// <returns>A <see cref="T:System.Drawing.Rectangle" /> that contains the bounding values of the column.</returns>
             public override Rectangle Bounds
             {
                 get
@@ -759,16 +783,27 @@ namespace System.Windows.Forms
                 }
             }
 
+            /// <summary>Gets the name of the column that owns the accessibility object.</summary>
+            /// <returns>The name of the column that owns the accessibility object.</returns>
             public override string Name => Owner._headerName;
 
+            /// <summary>Gets the column style object that owns the accessibility object.</summary>
+            /// <returns>The <see cref="T:System.Windows.Forms.DataGridColumnStyle" /> that owns the accessibility object.</returns>
             protected DataGridColumnStyle Owner { get; }
 
+            /// <summary>Gets the parent accessibility object.</summary>
+            /// <returns>The parent <see cref="T:System.Windows.Forms.AccessibleObject" /> of the column style object.</returns>
             public override AccessibleObject Parent => DataGrid.AccessibilityObject;
 
             private DataGrid DataGrid => Owner._dataGridTableStyle.dataGrid;
 
+            /// <summary>Gets the role of the accessibility object.</summary>
+            /// <returns>The <see langword="AccessibleRole" /> object of the accessibility object.</returns>
             public override AccessibleRole Role => AccessibleRole.ColumnHeader;
 
+            // <summary>Enables navigation to another object.</summary>
+            /// <param name="navdir">One of the <see cref="T:System.Windows.Forms.AccessibleNavigation" /> values.</param>
+            /// <returns>An <see cref="T:System.Windows.Forms.AccessibleObject" /> specified by the <paramref name="navdir" /> parameter.</returns>
             public override AccessibleObject Navigate(AccessibleNavigation navdir)
             {
                 switch (navdir)

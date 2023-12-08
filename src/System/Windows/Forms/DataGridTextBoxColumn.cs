@@ -31,7 +31,7 @@ namespace System.Windows.Forms
         private int editRow = -1;
 
         /// <summary>
-        ///  Initializes a new instance of the System.Windows.Forms.DataGridTextBoxColumn
+        ///  Initializes a new instance of the <see cref="T:System.Windows.Forms.DataGridTextBoxColumn" />
         ///  class.
         /// </summary>
         public DataGridTextBoxColumn() : this(null, null)
@@ -39,20 +39,31 @@ namespace System.Windows.Forms
         }
 
         /// <summary>
-        ///  Initializes a new instance of a System.Windows.Forms.DataGridTextBoxColumn with
-        ///  a specified System.Data.DataColumn.
+        ///  Initializes a new instance of a <see cref="T:System.Windows.Forms.DataGridTextBoxColumn" /> with
+        ///  a specified <see cref="T:System.ComponentModel.PropertyDescriptor" />.
         /// </summary>
+        /// <param name="prop">The <see cref="T:System.ComponentModel.PropertyDescriptor" /> for the column with which the <see cref="T:System.Windows.Forms.DataGridTextBoxColumn" /> will be associated.</param>
         public DataGridTextBoxColumn(PropertyDescriptor prop)
         : this(prop, null, false)
         {
         }
 
         /// <summary>
-        ///  Initializes a new instance of a System.Windows.Forms.DataGridTextBoxColumn. with
-        ///  the specified System.Data.DataColumn and System.Windows.Forms.ComponentModel.Format.
+        ///  Initializes a new instance of a <see cref="T:System.Windows.Forms.DataGridTextBoxColumn" /> with
+        ///  the specified <see cref="T:System.ComponentModel.PropertyDescriptor" /> and format.
         /// </summary>
+        /// <param name="prop">The <see cref="T:System.ComponentModel.PropertyDescriptor" /> for the column with which the <see cref="T:System.Windows.Forms.DataGridTextBoxColumn" /> will be associated.</param>
+        /// <param name="format">The format used to format the column values.</param>
         public DataGridTextBoxColumn(PropertyDescriptor prop, string format) : this(prop, format, false) { }
 
+        /// <summary>
+        ///  Initializes a new instance of the <see cref="T:System.Windows.Forms.DataGridTextBoxColumn" /> class with
+        ///  a specified <see cref="T:System.ComponentModel.PropertyDescriptor" /> and format.
+        ///  Specifies whether the column is the default column.
+        /// </summary>
+        /// <param name="prop">The <see cref="T:System.ComponentModel.PropertyDescriptor" /> to be associated with the <see cref="T:System.Windows.Forms.DataGridTextBoxColumn" />.</param>
+        /// <param name="format">The format used.</param>
+        /// <param name="isDefault">Specifies whether the <see cref="T:System.Windows.Forms.DataGridTextBoxColumn" /> is the default column.</param>
         public DataGridTextBoxColumn(PropertyDescriptor prop, string format, bool isDefault) : base(prop, isDefault)
         {
             edit = new DataGridTextBox
@@ -65,6 +76,13 @@ namespace System.Windows.Forms
             Format = format;
         }
 
+        /// <summary>
+        ///  Initializes a new instance of the <see cref="T:System.Windows.Forms.DataGridTextBoxColumn" /> class
+        ///  using the specified <see cref="T:System.ComponentModel.PropertyDescriptor" />.
+        ///  Specifies whether the <see cref="T:System.Windows.Forms.DataGridTextBoxColumn" /> is a default column.
+        /// </summary>
+        /// <param name="prop">The <see cref="T:System.ComponentModel.PropertyDescriptor" /> to be associated with the <see cref="T:System.Windows.Forms.DataGridTextBoxColumn" />.</param>
+        /// <param name="isDefault">Specifies whether the <see cref="T:System.Windows.Forms.DataGridTextBoxColumn" /> is a default column.</param>
         public DataGridTextBoxColumn(PropertyDescriptor prop, bool isDefault) : this(prop, null, isDefault) { }
 
         // =------------------------------------------------------------------
@@ -155,6 +173,8 @@ namespace System.Windows.Forms
 
         // add the corresponding value Editor: rip one from the valueEditor for the DisplayMember in the
         // format object
+        /// <summary>Gets or sets the character(s) that specify how text is formatted.</summary>
+        /// <returns>The character or characters that specify how text is formatted.</returns>
         [DefaultValue(null), Editor("System.Windows.Forms.Design.DataGridColumnStyleFormatEditor, " + AssemblyRef.SystemDesign, typeof(Drawing.Design.UITypeEditor))]
         public string Format
         {
@@ -189,6 +209,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets the culture specific information used to determine how values are formatted.</summary>
+        /// <returns>An object that implements the <see cref="T:System.IFormatProvider" /> interface, such as the <see cref="T:System.Globalization.CultureInfo" /> class.</returns>
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Advanced)]
         public IFormatProvider FormatInfo
         {
@@ -205,6 +227,10 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Sets a value indicating whether the text box column is read-only.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the text box column is read-only; otherwise, <see langword="false" />.
+        /// </returns>
         public override bool ReadOnly
         {
             get
@@ -277,6 +303,10 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Updates the user interface.</summary>
+        /// <param name="source">The <see cref="T:System.Windows.Forms.CurrencyManager" /> that supplies the data.</param>
+        /// <param name="rowNum">The index of the row to update.</param>
+        /// <param name="displayText">The text to display in the cell.</param>
         protected internal override void UpdateUI(CurrencyManager source, int rowNum, string displayText)
         {
             edit.Text = GetText(GetColumnValueAtRow(source, rowNum));
@@ -629,6 +659,7 @@ namespace System.Windows.Forms
             edit.Text = oldValue;
         }
 
+        /// <summary>Removes the reference that the <see cref="T:System.Windows.Forms.DataGrid" /> holds to the control used to edit data.</summary>
         protected internal override void ReleaseHostedControl()
         {
             if (edit.Parent != null)

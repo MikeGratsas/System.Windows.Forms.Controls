@@ -99,6 +99,10 @@ namespace System.Windows.Forms
         // LinkColor, LinkHoverColor
         //
 
+        /// <summary>Indicates whether sorting is allowed on the grid table when this <see cref="T:System.Windows.Forms.DataGridTableStyle" /> is used.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if sorting is allowed; otherwise, <see langword="false" />. The default is <see langword="true" />.
+        /// </returns>
         [
         SRCategory(nameof(SR.CatBehavior)),
         DefaultValue(defaultAllowSorting),
@@ -134,6 +138,8 @@ namespace System.Windows.Forms
             remove => Events.RemoveHandler(EventAllowSorting, value);
         }
 
+        /// <summary>Gets or sets the background color of odd-numbered rows of the grid.</summary>
+        /// <returns>A <see cref="T:System.Drawing.Color" /> that represents the background color of odd-numbered rows. The default is <see cref="P:System.Drawing.SystemBrushes.Window" /></returns>
         [
          SRCategory(nameof(SR.CatColors)),
          SRDescription(nameof(SR.DataGridAlternatingBackColorDescr))
@@ -169,11 +175,14 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.AlternatingBackColor" /> value changes.</summary>
         public event EventHandler AlternatingBackColorChanged
         {
             add => Events.AddHandler(EventAlternatingBackColor, value);
             remove => Events.RemoveHandler(EventAlternatingBackColor, value);
         }
+
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGridTableStyle.AlternatingBackColor" /> property to its default value.</summary>
         public void ResetAlternatingBackColor()
         {
             if (ShouldSerializeAlternatingBackColor())
@@ -183,6 +192,10 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGridTableStyle.AlternatingBackColor" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.
+        /// </returns>
         protected virtual bool ShouldSerializeAlternatingBackColor()
         {
             return !AlternatingBackBrush.Equals(DefaultAlternatingBackBrush);
@@ -196,11 +209,19 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGridTableStyle.BackColor" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.
+        /// </returns>
         protected bool ShouldSerializeBackColor()
         {
             return !System.Windows.Forms.DataGridTableStyle.DefaultBackBrush.Equals(backBrush);
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGridTableStyle.ForeColor" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.
+        /// </returns>
         protected bool ShouldSerializeForeColor()
         {
             return !System.Windows.Forms.DataGridTableStyle.DefaultForeBrush.Equals(foreBrush);
@@ -214,6 +235,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets the background color of even-numbered rows of the grid.</summary>
+        /// <returns>A <see cref="T:System.Drawing.Color" /> that represents the background color of odd-numbered rows.</returns>
         [
          SRCategory(nameof(SR.CatColors)),
          SRDescription(nameof(SR.ControlBackColorDescr))
@@ -249,12 +272,14 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.BackColor" /> value changes.</summary>
         public event EventHandler BackColorChanged
         {
             add => Events.AddHandler(EventBackColor, value);
             remove => Events.RemoveHandler(EventBackColor, value);
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGridTableStyle.BackColor" /> property to its default value.</summary>
         public void ResetBackColor()
         {
             if (!backBrush.Equals(DefaultBackBrush))
@@ -400,6 +425,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets the foreground color of the grid table.</summary>
+        /// <returns>A <see cref="T:System.Drawing.Color" /> that represents the foreground color of the grid table.</returns>
         [
          SRCategory(nameof(SR.CatColors)),
          SRDescription(nameof(SR.ControlForeColorDescr))
@@ -430,6 +457,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.ForeColor" /> value changes.</summary>
         public event EventHandler ForeColorChanged
         {
             add => Events.AddHandler(EventForeColor, value);
@@ -444,6 +472,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGridTableStyle.ForeColor" /> property to its default value.</summary>
         public void ResetForeColor()
         {
             if (!foreBrush.Equals(DefaultForeBrush))
@@ -452,6 +481,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets the color of grid lines.</summary>
+        /// <returns>A <see cref="T:System.Drawing.Color" /> that represents the grid line color.</returns>
         [
          SRCategory(nameof(SR.CatColors)),
          SRDescription(nameof(SR.DataGridGridLineColorDescr))
@@ -482,17 +513,23 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.GridLineColor" /> value changes.</summary>
         public event EventHandler GridLineColorChanged
         {
             add => Events.AddHandler(EventGridLineColor, value);
             remove => Events.RemoveHandler(EventGridLineColor, value);
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGridTableStyle.GridLineColor" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.
+        /// </returns>
         protected virtual bool ShouldSerializeGridLineColor()
         {
             return !GridLineBrush.Equals(DefaultGridLineBrush);
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGridTableStyle.GridLineColor" /> property to its default value.</summary>
         public void ResetGridLineColor()
         {
             if (ShouldSerializeGridLineColor())
@@ -518,6 +555,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets the style of grid lines.</summary>
+        /// <returns>One of the <see cref="T:System.Windows.Forms.DataGridLineStyle" /> values. The default is <see langword="DataGridLineStyle.Solid" />.</returns>
         [
          SRCategory(nameof(SR.CatAppearance)),
          DefaultValue(defaultGridLineStyle),
@@ -549,12 +588,15 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.GridLineStyle" /> value changes.</summary>
         public event EventHandler GridLineStyleChanged
         {
             add => Events.AddHandler(EventGridLineStyle, value);
             remove => Events.RemoveHandler(EventGridLineStyle, value);
         }
 
+        /// <summary>Gets or sets the background color of headers.</summary>
+        /// <returns>A <see cref="T:System.Drawing.Color" /> that represents the background color of headers.</returns>
         [
          SRCategory(nameof(SR.CatColors)),
          SRDescription(nameof(SR.DataGridHeaderBackColorDescr))
@@ -590,6 +632,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.HeaderBackColor" /> value changes.</summary>
         public event EventHandler HeaderBackColorChanged
         {
             add => Events.AddHandler(EventHeaderBackColor, value);
@@ -604,11 +647,16 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGridTableStyle.HeaderForeColor" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.
+        /// </returns>
         protected virtual bool ShouldSerializeHeaderBackColor()
         {
             return !HeaderBackBrush.Equals(DefaultHeaderBackBrush);
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGridTableStyle.HeaderBackColor" /> property to its default value.</summary>
         public void ResetHeaderBackColor()
         {
             if (ShouldSerializeHeaderBackColor())
@@ -617,6 +665,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets the font used for header captions.</summary>
+        /// <returns>The <see cref="T:System.Drawing.Font" /> used for captions.</returns>
         [
          SRCategory(nameof(SR.CatAppearance)),
          Localizable(true),
@@ -644,6 +694,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.HeaderFont" /> value changes.</summary>
         public event EventHandler HeaderFontChanged
         {
             add => Events.AddHandler(EventHeaderFont, value);
@@ -655,6 +706,7 @@ namespace System.Windows.Forms
             return (headerFont != null);
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGridTableStyle.HeaderFont" /> property to its default value.</summary>
         public void ResetHeaderFont()
         {
             if (headerFont != null)
@@ -664,6 +716,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets the foreground color of headers.</summary>
+        /// <returns>A <see cref="T:System.Drawing.Color" /> that represents the foreground color of headers.</returns>
         [
          SRCategory(nameof(SR.CatColors)),
          SRDescription(nameof(SR.DataGridHeaderForeColorDescr))
@@ -695,17 +749,23 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.HeaderForeColor" /> value changes.</summary>
         public event EventHandler HeaderForeColorChanged
         {
             add => Events.AddHandler(EventHeaderForeColor, value);
             remove => Events.RemoveHandler(EventHeaderForeColor, value);
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGridTableStyle.HeaderForeColor" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.
+        /// </returns>
         protected virtual bool ShouldSerializeHeaderForeColor()
         {
             return !HeaderForePen.Equals(DefaultHeaderForePen);
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGridTableStyle.HeaderForeColor" /> property to its default value.</summary>
         public void ResetHeaderForeColor()
         {
             if (ShouldSerializeHeaderForeColor())
@@ -730,6 +790,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets the color of link text.</summary>
+        /// <returns>The <see cref="T:System.Drawing.Color" /> of link text.</returns>
         [
          SRCategory(nameof(SR.CatColors)),
          SRDescription(nameof(SR.DataGridLinkColorDescr))
@@ -760,17 +822,23 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.LinkColor" /> value changes.</summary>
         public event EventHandler LinkColorChanged
         {
             add => Events.AddHandler(EventLinkColor, value);
             remove => Events.RemoveHandler(EventLinkColor, value);
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGridTableStyle.LinkColor" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.
+        /// </returns>
         protected virtual bool ShouldSerializeLinkColor()
         {
             return !LinkBrush.Equals(DefaultLinkBrush);
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGridTableStyle.LinkColor" /> property to its default value.</summary>
         public void ResetLinkColor()
         {
             if (ShouldSerializeLinkColor())
@@ -787,6 +855,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets the color displayed when hovering over link text.</summary>
+        /// <returns>A <see cref="T:System.Drawing.Color" /> that represents the hover color.</returns>
         [
          SRDescription(nameof(SR.DataGridLinkHoverColorDescr)),
          SRCategory(nameof(SR.CatColors)),
@@ -804,12 +874,17 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.LinkHoverColor" /> value changes.</summary>
         public event EventHandler LinkHoverColorChanged
         {
             add => Events.AddHandler(EventLinkHoverColor, value);
             remove => Events.RemoveHandler(EventLinkHoverColor, value);
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGridTableStyle.LinkHoverColor" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.
+        /// </returns>
         protected virtual bool ShouldSerializeLinkHoverColor()
         {
             return false;
@@ -880,10 +955,13 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGridTableStyle.LinkHoverColor" /> property to its default value.</summary>
         public void ResetLinkHoverColor()
         {
         }
 
+        /// <summary>Gets or sets the width used to create columns when a new grid is displayed.</summary>
+        /// <returns>The width used to create columns when a new grid is displayed.</returns>
         [
          DefaultValue(defaultPreferredColumnWidth),
          SRCategory(nameof(SR.CatLayout)),
@@ -917,12 +995,15 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.PreferredColumnWidth" /> property value changes.</summary>
         public event EventHandler PreferredColumnWidthChanged
         {
             add => Events.AddHandler(EventPreferredColumnWidth, value);
             remove => Events.RemoveHandler(EventPreferredColumnWidth, value);
         }
 
+        /// <summary>Gets or sets the height used to create a row when a new grid is displayed.</summary>
+        /// <returns>The height of a row, in pixels.</returns>
         [
          SRCategory(nameof(SR.CatLayout)),
          Localizable(true),
@@ -954,6 +1035,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.PreferredRowHeight" /> value changes.</summary>
         public event EventHandler PreferredRowHeightChanged
         {
             add => Events.AddHandler(EventPreferredRowHeight, value);
@@ -965,11 +1047,19 @@ namespace System.Windows.Forms
             PreferredRowHeight = defaultFontHeight + 3;
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGridTableStyle.PreferredRowHeight" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.
+        /// </returns>
         protected bool ShouldSerializePreferredRowHeight()
         {
             return preferredRowHeight != defaultFontHeight + 3;
         }
 
+        /// <summary>Gets or sets a value indicating whether column headers are visible.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if column headers are visible; otherwise, <see langword="false" />. The default is <see langword="true" />.
+        /// </returns>
         [
          SRCategory(nameof(SR.CatDisplay)),
          DefaultValue(true),
@@ -991,12 +1081,17 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.ColumnHeadersVisible" /> value changes.</summary>
         public event EventHandler ColumnHeadersVisibleChanged
         {
             add => Events.AddHandler(EventColumnHeadersVisible, value);
             remove => Events.RemoveHandler(EventColumnHeadersVisible, value);
         }
 
+        /// <summary>Gets or sets a value indicating whether row headers are visible.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if row headers are visible; otherwise, <see langword="false" />. The default is <see langword="true" />.
+        /// </returns>
         [
          SRCategory(nameof(SR.CatDisplay)),
          DefaultValue(true),
@@ -1018,12 +1113,15 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.RowHeadersVisible" /> value changes.</summary>
         public event EventHandler RowHeadersVisibleChanged
         {
             add => Events.AddHandler(EventRowHeadersVisible, value);
             remove => Events.RemoveHandler(EventRowHeadersVisible, value);
         }
 
+        /// <summary>Gets or sets the width of row headers.</summary>
+        /// <returns>The width of row headers, in pixels.</returns>
         [
          SRCategory(nameof(SR.CatLayout)),
          DefaultValue(defaultRowHeaderWidth),
@@ -1051,12 +1149,15 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.RowHeaderWidth" /> value changes.</summary>
         public event EventHandler RowHeaderWidthChanged
         {
             add => Events.AddHandler(EventRowHeaderWidth, value);
             remove => Events.RemoveHandler(EventRowHeaderWidth, value);
         }
 
+        /// <summary>Gets or sets the background color of selected cells.</summary>
+        /// <returns>The <see cref="T:System.Drawing.Color" /> that represents the background color of selected cells.</returns>
         [
          SRCategory(nameof(SR.CatColors)),
          SRDescription(nameof(SR.DataGridSelectionBackColorDescr))
@@ -1093,6 +1194,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.SelectionBackColor" /> value changes.</summary>
         public event EventHandler SelectionBackColorChanged
         {
             add => Events.AddHandler(EventSelectionBackColor, value);
@@ -1115,11 +1217,16 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGridTableStyle.SelectionBackColor" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.
+        /// </returns>
         protected bool ShouldSerializeSelectionBackColor()
         {
             return !DefaultSelectionBackBrush.Equals(selectionBackBrush);
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGridTableStyle.SelectionBackColor" /> property to its default value.</summary>
         public void ResetSelectionBackColor()
         {
             if (ShouldSerializeSelectionBackColor())
@@ -1128,6 +1235,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets or sets the foreground color of selected cells.</summary>
+        /// <returns>The <see cref="T:System.Drawing.Color" /> that represents the foreground color of selected cells.</returns>
         [
          Description("The foreground color for the current data grid row"),
          SRCategory(nameof(SR.CatColors)),
@@ -1160,17 +1269,23 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.SelectionForeColor" /> value changes.</summary>
         public event EventHandler SelectionForeColorChanged
         {
             add => Events.AddHandler(EventSelectionForeColor, value);
             remove => Events.RemoveHandler(EventSelectionForeColor, value);
         }
 
+        /// <summary>Indicates whether the <see cref="P:System.Windows.Forms.DataGridTableStyle.SelectionForeColor" /> property should be persisted.</summary>
+        /// <returns>
+        ///   <see langword="true" /> if the property value has changed from its default; otherwise, <see langword="false" />.
+        /// </returns>
         protected virtual bool ShouldSerializeSelectionForeColor()
         {
             return !SelectionForeBrush.Equals(DefaultSelectionForeBrush);
         }
 
+        /// <summary>Resets the <see cref="P:System.Windows.Forms.DataGridTableStyle.SelectionForeColor" /> property to its default value.</summary>
         public void ResetSelectionForeColor()
         {
             if (ShouldSerializeSelectionForeColor())
@@ -1189,6 +1304,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Gets the default table style.</summary>
         public static readonly DataGridTableStyle DefaultTableStyle = new DataGridTableStyle(true);
 
         /// <summary>
@@ -1201,6 +1317,7 @@ namespace System.Windows.Forms
             this.isDefaultTableStyle = isDefaultTableStyle;
         }
 
+        /// <summary>Initializes a new instance of the <see cref='DataGridTableStyle' /> class.</summary>
         public DataGridTableStyle() : this(false)
         {
         }
@@ -1295,11 +1412,18 @@ namespace System.Windows.Forms
             return typeof(IList).IsAssignableFrom(prop.PropertyType) && !typeof(Array).IsAssignableFrom(prop.PropertyType);
         }
 
+        /// <summary>Creates a <see cref="T:System.Windows.Forms.DataGridColumnStyle" />, using the specified property descriptor.</summary>
+        /// <param name="prop">The <see cref="T:System.ComponentModel.PropertyDescriptor" /> used to create the column style object.</param>
+        /// <returns>The newly created <see cref="T:System.Windows.Forms.DataGridColumnStyle" />.</returns>
         internal protected virtual DataGridColumnStyle CreateGridColumn(PropertyDescriptor prop)
         {
             return CreateGridColumn(prop, false);
         }
 
+        /// <summary>Creates a <see cref="T:System.Windows.Forms.DataGridColumnStyle" /> using the specified property descriptor. Specifies whether the <see cref="T:System.Windows.Forms.DataGridColumnStyle" /> is a default column style.</summary>
+        /// <param name="prop">The <see cref="T:System.ComponentModel.PropertyDescriptor" /> used to create the column style object.</param>
+        /// <param name="isDefault">Specifies whether the <see cref="T:System.Windows.Forms.DataGridColumnStyle" /> is a default column style. This parameter is read-only.</param>
+        /// <returns>The newly created <see cref="T:System.Windows.Forms.DataGridColumnStyle" />.</returns>
         internal protected virtual DataGridColumnStyle CreateGridColumn(PropertyDescriptor prop, bool isDefault)
         {
             if (prop == null)
@@ -1397,6 +1521,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.MappingName" /> value changes.</summary>
         public event EventHandler MappingNameChanged
         {
             add => Events.AddHandler(EventMappingName, value);
@@ -1493,6 +1618,7 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Occurs when the <see cref="P:System.Windows.Forms.DataGridTableStyle.ReadOnly" /> value changes.</summary>
         public event EventHandler ReadOnlyChanged
         {
             add => Events.AddHandler(EventReadOnly, value);
@@ -1604,6 +1730,9 @@ namespace System.Windows.Forms
                 GenerateVisibleColumnsCache();
         }
 #endif
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.ReadOnlyChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnReadOnlyChanged(EventArgs e)
         {
             if (Events[EventReadOnly] is EventHandler eh)
@@ -1612,6 +1741,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.MappingNameChanged" /> event</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnMappingNameChanged(EventArgs e)
         {
             if (Events[EventMappingName] is EventHandler eh)
@@ -1620,6 +1751,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.AlternatingBackColorChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnAlternatingBackColorChanged(EventArgs e)
         {
             if (Events[EventAlternatingBackColor] is EventHandler eh)
@@ -1628,6 +1761,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.ForeColorChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnForeColorChanged(EventArgs e)
         {
             if (Events[EventForeColor] is EventHandler eh)
@@ -1636,6 +1771,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.BackColorChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnBackColorChanged(EventArgs e)
         {
             if (Events[EventBackColor] is EventHandler eh)
@@ -1644,6 +1781,8 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.AllowSortingChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnAllowSortingChanged(EventArgs e)
         {
             if (Events[EventAllowSorting] is EventHandler eh)
@@ -1651,6 +1790,9 @@ namespace System.Windows.Forms
                 eh(this, e);
             }
         }
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.GridLineColorChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnGridLineColorChanged(EventArgs e)
         {
             if (Events[EventGridLineColor] is EventHandler eh)
@@ -1658,6 +1800,9 @@ namespace System.Windows.Forms
                 eh(this, e);
             }
         }
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.GridLineStyleChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnGridLineStyleChanged(EventArgs e)
         {
             if (Events[EventGridLineStyle] is EventHandler eh)
@@ -1665,6 +1810,9 @@ namespace System.Windows.Forms
                 eh(this, e);
             }
         }
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.HeaderBackColorChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnHeaderBackColorChanged(EventArgs e)
         {
             if (Events[EventHeaderBackColor] is EventHandler eh)
@@ -1672,6 +1820,9 @@ namespace System.Windows.Forms
                 eh(this, e);
             }
         }
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.HeaderFontChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnHeaderFontChanged(EventArgs e)
         {
             if (Events[EventHeaderFont] is EventHandler eh)
@@ -1679,6 +1830,9 @@ namespace System.Windows.Forms
                 eh(this, e);
             }
         }
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.HeaderForeColorChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnHeaderForeColorChanged(EventArgs e)
         {
             if (Events[EventHeaderForeColor] is EventHandler eh)
@@ -1686,6 +1840,9 @@ namespace System.Windows.Forms
                 eh(this, e);
             }
         }
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.LinkColorChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnLinkColorChanged(EventArgs e)
         {
             if (Events[EventLinkColor] is EventHandler eh)
@@ -1693,6 +1850,9 @@ namespace System.Windows.Forms
                 eh(this, e);
             }
         }
+
+        /// <summary>Raises the <see langword="LinkHoverColorChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnLinkHoverColorChanged(EventArgs e)
         {
             if (Events[EventLinkHoverColor] is EventHandler eh)
@@ -1700,6 +1860,9 @@ namespace System.Windows.Forms
                 eh(this, e);
             }
         }
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.PreferredRowHeightChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnPreferredRowHeightChanged(EventArgs e)
         {
             if (Events[EventPreferredRowHeight] is EventHandler eh)
@@ -1707,6 +1870,9 @@ namespace System.Windows.Forms
                 eh(this, e);
             }
         }
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.PreferredRowHeightChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnPreferredColumnWidthChanged(EventArgs e)
         {
             if (Events[EventPreferredColumnWidth] is EventHandler eh)
@@ -1714,6 +1880,9 @@ namespace System.Windows.Forms
                 eh(this, e);
             }
         }
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.ColumnHeadersVisibleChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnColumnHeadersVisibleChanged(EventArgs e)
         {
             if (Events[EventColumnHeadersVisible] is EventHandler eh)
@@ -1721,6 +1890,9 @@ namespace System.Windows.Forms
                 eh(this, e);
             }
         }
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.RowHeadersVisibleChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnRowHeadersVisibleChanged(EventArgs e)
         {
             if (Events[EventRowHeadersVisible] is EventHandler eh)
@@ -1728,6 +1900,9 @@ namespace System.Windows.Forms
                 eh(this, e);
             }
         }
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.RowHeaderWidthChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnRowHeaderWidthChanged(EventArgs e)
         {
             if (Events[EventRowHeaderWidth] is EventHandler eh)
@@ -1735,6 +1910,9 @@ namespace System.Windows.Forms
                 eh(this, e);
             }
         }
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.SelectionForeColorChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnSelectionForeColorChanged(EventArgs e)
         {
             if (Events[EventSelectionForeColor] is EventHandler eh)
@@ -1742,6 +1920,9 @@ namespace System.Windows.Forms
                 eh(this, e);
             }
         }
+
+        /// <summary>Raises the <see cref="E:System.Windows.Forms.DataGridTableStyle.SelectionBackColorChanged" /> event.</summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
         protected virtual void OnSelectionBackColorChanged(EventArgs e)
         {
             if (Events[EventSelectionBackColor] is EventHandler eh)
@@ -1750,6 +1931,12 @@ namespace System.Windows.Forms
             }
         }
 
+        /// <summary>
+        /// Disposes of the resources (other than memory) used by the <see cref="T:System.Windows.Forms.DataGridTableStyle" />.
+        /// </summary>
+        /// <param name="disposing">
+        ///   <see langword="true" /> to release both managed and unmanaged resources; <see langword="false" /> to release only unmanaged resources.
+        /// </param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)

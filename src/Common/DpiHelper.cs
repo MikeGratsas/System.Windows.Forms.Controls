@@ -223,11 +223,10 @@ namespace System.Windows.Forms
             return scaledValue == 0 ? 1 : scaledValue;
         }
 
-        /// <summary>
-        ///  Transforms a horizontal or vertical integer coordinate from logical to device units
-        ///  by scaling it up for current DPI and rounding to nearest integer value
-        /// </summary>
+        /// <summary>Transforms a horizontal or vertical integer coordinate from logical to device units
+        ///  by scaling it up for current DPI and rounding to nearest integer value</summary>
         /// <param name="value">value in logical units</param>
+        /// <param name="devicePixels">The screen's (device) DPI</param>
         /// <returns>value in device units</returns>
         public static int LogicalToDeviceUnits(int value, int devicePixels = 0)
         {
@@ -240,11 +239,10 @@ namespace System.Windows.Forms
             return (int)Math.Round(scalingFactor * value);
         }
 
-        /// <summary>
-        ///  Returns a new Padding with the input's
-        ///  dimensions converted from logical units to device units.
-        /// </summary>
+        /// <summary>Returns a new Padding with the input's
+        /// dimensions converted from logical units to device units.</summary>
         /// <param name="logicalPadding">Padding in logical units</param>
+        /// <param name="deviceDpi">The screen's (device) DPI</param>
         /// <returns>Padding in device units</returns>
         public static Padding LogicalToDeviceUnits(Padding logicalPadding, int deviceDpi = 0)
         {
@@ -282,6 +280,7 @@ namespace System.Windows.Forms
         ///  dimensions converted from logical units to device units.
         /// </summary>
         /// <param name="logicalSize">Size in logical units</param>
+        /// <param name="deviceDpi">The screen's (device) DPI</param>
         /// <returns>Size in device units</returns>
         public static Size LogicalToDeviceUnits(Size logicalSize, int deviceDpi = 0)
         {
@@ -342,6 +341,7 @@ namespace System.Windows.Forms
         ///  When displayed on the device, the scaled image will have same size as the original image would have when displayed at 96dpi.
         /// </summary>
         /// <param name="logicalBitmap">The image to scale from logical units to device units</param>
+        /// <param name="deviceDpi">The screen's (device) DPI</param>
         public static void ScaleBitmapLogicalToDevice(ref Bitmap logicalBitmap, int deviceDpi = 0)
         {
             if (logicalBitmap is null)
