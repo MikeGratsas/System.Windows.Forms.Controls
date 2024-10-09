@@ -10,16 +10,16 @@
     <ImplicitUsings>disable</ImplicitUsings>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>mono.snk</AssemblyOriginatorKeyFile>
-    <AssemblyName></AssemblyName>
+    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
     <RootNamespace></RootNamespace>
     <AssemblyVersion>1.0.5000.0</AssemblyVersion>
     <RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
     <RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
     <EnableNETAnalyzers>False</EnableNETAnalyzers>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <DocumentationFile>$(OutputPath)$(MSBuildProjectName).xml</DocumentationFile>
+    <DocumentationFile>$(MSBuildProjectName).xml</DocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.5001</Version>
+    <Version>1.0.5002</Version>
     <Authors>Mike Gratsas</Authors>
     <Description>This package includes types and controls that were removed from System.Windows.Forms in .NET Core 3.x / .NET 5.</Description>
     <Copyright>The code in the package is Copyright © Microsoft Corporation</Copyright>
@@ -28,7 +28,7 @@
     <RepositoryUrl>https://github.com/MikeGratsas/System.Windows.Forms.Controls</RepositoryUrl>
     <PackageTags>System.Windows.Forms;WinForms;Controls;Legacy;Compatibility;</PackageTags>
     <PackageId>SharpImg.System.Windows.Forms.Controls</PackageId>
-    <PackageVersion>1.0.5001</PackageVersion>
+    <PackageVersion>1.0.5002</PackageVersion>
     <Product>System.Windows.Forms.Controls</Product>
     <Title>System.Windows.Forms.Controls</Title>
     <PackageIconUrl>http://go.microsoft.com/fwlink/?LinkID=288859</PackageIconUrl>
@@ -67,6 +67,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>SR.Designer.cs</LastGenOutput>
       <CustomToolNamespace>System</CustomToolNamespace>
+    <SubType></SubType>
     </EmbeddedResource>
   </ItemGroup>
 
@@ -76,5 +77,62 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="src\Resources\System\Windows\Forms\ContextMenu.ico">
+      <LogicalName>System.Windows.Forms.ContextMenu</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Resources\System\Windows\Forms\DataGrid.ico">
+      <LogicalName>System.Windows.Forms.DataGrid</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Resources\System\Windows\Forms\DataGridCaption.backarrow.ico">
+      <LogicalName>System.Windows.Forms.DataGridCaption.backarrow</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Resources\System\Windows\Forms\DataGridCaption.backarrow_bidi.ico">
+      <LogicalName>System.Windows.Forms.DataGridCaption.backarrow_bidi</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Resources\System\Windows\Forms\DataGridCaption.Details.ico">
+      <LogicalName>System.Windows.Forms.DataGridCaption.Details</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Resources\System\Windows\Forms\DataGridCaption.down.ico">
+      <LogicalName>System.Windows.Forms.DataGridCaption.down</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Resources\System\Windows\Forms\DataGridCaption.right.ico">
+      <LogicalName>System.Windows.Forms.DataGridCaption.right</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Resources\System\Windows\Forms\DataGridCaption.up.ico">
+      <LogicalName>System.Windows.Forms.DataGridCaption.up</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Resources\System\Windows\Forms\DataGridParentRows.LeftArrow.ico">
+      <LogicalName>System.Windows.Forms.DataGridParentRows.LeftArrow</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Resources\System\Windows\Forms\DataGridParentRows.RightArrow.ico">
+      <LogicalName>System.Windows.Forms.DataGridParentRows.RightArrow</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Resources\System\Windows\Forms\DataGridRow.error.ico">
+      <LogicalName>System.Windows.Forms.DataGridRow.error</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Resources\System\Windows\Forms\DataGridRow.left.ico">
+      <LogicalName>System.Windows.Forms.DataGridDataGridRow.left</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Resources\System\Windows\Forms\DataGridRow.pencil.ico">
+      <LogicalName>System.Windows.Forms.DataGridRow.pencil</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Resources\System\Windows\Forms\DataGridRow.right.ico">
+      <LogicalName>System.Windows.Forms.DataGridRow.right</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Resources\System\Windows\Forms\DataGridRow.star.ico">
+      <LogicalName>System.Windows.Forms.DataGridRow.star</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Resources\System\Windows\Forms\MainMenu.ico">
+      <LogicalName>System.Windows.Forms.MainMenu</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Resources\System\Windows\Forms\StatusBar.ico">
+      <LogicalName>System.Windows.Forms.StatusBar</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Resources\System\Windows\Forms\ToolBar.ico">
+      <LogicalName>System.Windows.Forms.ToolBar</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
