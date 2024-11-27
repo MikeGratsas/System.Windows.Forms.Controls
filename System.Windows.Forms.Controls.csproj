@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net5.0-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net5.0-windows;net6.0-windows;net7.0-windows;net8.0-windows;net9.0-windows</TargetFrameworks>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <CLSCompliant>true</CLSCompliant>
@@ -19,7 +19,7 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <DocumentationFile>$(MSBuildProjectName).xml</DocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.5002</Version>
+    <Version>1.0.5003</Version>
     <Authors>Mike Gratsas</Authors>
     <Description>This package includes types and controls that were removed from System.Windows.Forms in .NET Core 3.x / .NET 5.</Description>
     <Copyright>The code in the package is Copyright © Microsoft Corporation</Copyright>
@@ -28,7 +28,7 @@
     <RepositoryUrl>https://github.com/MikeGratsas/System.Windows.Forms.Controls</RepositoryUrl>
     <PackageTags>System.Windows.Forms;WinForms;Controls;Legacy;Compatibility;</PackageTags>
     <PackageId>SharpImg.System.Windows.Forms.Controls</PackageId>
-    <PackageVersion>1.0.5002</PackageVersion>
+    <PackageVersion>1.0.5003</PackageVersion>
     <Product>System.Windows.Forms.Controls</Product>
     <Title>System.Windows.Forms.Controls</Title>
     <PackageIconUrl>http://go.microsoft.com/fwlink/?LinkID=288859</PackageIconUrl>
