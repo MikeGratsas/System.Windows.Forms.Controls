@@ -16,12 +16,12 @@ jobs:
     permissions:
       packages: write
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       id: stepid
       with:
-        dotnet-version: '8.0.x'
+        dotnet-version: '9.0.x'
         source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -36,7 +36,7 @@ jobs:
     - name: Pack nugets
       run: dotnet pack -c Release --no-build
     - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: dotnet-results-${{ steps.stepid.outputs.dotnet-version }}
         path: ${{ github.workspace }}/bin/Release
