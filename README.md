@@ -44,7 +44,7 @@ According to [Microsoft documentation](https://learn.microsoft.com/en-us/dotnet/
 It's suggested you upgrade your code to replace legacy controls, but if case your projects include many Windows Forms containing deprecated controls you can use the controls with minimal code changes.
 
 
-Since it is impossible to use extension properties in .NET, extension methods should be used instead of properties:
+Since extension members were introduced in C# 14 only, it was not possible to use extension properties in versions prior to .NET 10. Therefore, extension methods should be used instead of properties:
 
 Control type:
 

@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using System.ComponentModel;
+using System.Drawing;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using static Interop;
@@ -164,5 +166,67 @@ namespace System.Windows.Forms
                 }
             }
         }
+
+#if NET10_0_OR_GREATER
+
+        extension(Form form)
+        {
+
+        /// <summary>
+        /// Gets or sets the <see cref='MainMenu' /> that is displayed in the form.
+        /// </summary>
+        /// <returns>A <see cref='MainMenu' /> that represents the menu to display in the form.</returns>
+        [DefaultValue(null)]
+        [Browsable(false)]
+        public MainMenu Menu
+        {
+            get
+            {
+                return GetMenu(form);
+            }
+            set
+            {
+                SetMenu(form, value);
+            }
+        }
+
+        /// <summary>
+        /// Gets the merged menu for the form.
+        /// </summary>
+        /// <returns>A <see cref='MainMenu' /> that represents the merged menu of the form.</returns>
+        [Browsable(false)]
+        public MainMenu MergedMenu
+        {
+            get
+            {
+                return GetMergedMenu(form);
+            }
+        }
+ 
+        }
+
+        extension(Control control)
+        {
+
+        /// <summary>
+        /// Gets or sets the shortcut menu associated with the control.
+        /// </summary>
+        /// <returns>A <see cref='ContextMenu' /> that represents the shortcut menu associated with the control.</returns>
+        [DefaultValue(null)]
+        [Browsable(false)]
+        public ContextMenu ContextMenu
+        {
+            get
+            {
+                return GetContextMenu(control);
+            }
+            set
+            {
+                SetContextMenu(control, value);
+            }
+        }
+
+        }
+#endif
     }
 }
